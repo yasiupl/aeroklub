@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa: dojazdy do aeroklubów – Skrzydła nad Jeziorakiem</title>
+    <meta name="description" content="Trasy z Iławy do aeroklubów w Olsztynie, Grudziądzu, Elblągu, Gdańsku i Warszawie. Powiat iławski to biała plama na mapie lotnictwa.">
+    <!-- Wersja robocza: strona nie trafia do wyszukiwarek. Usuń ten znacznik, gdy projekt wyjdzie na zewnątrz. -->
+    <meta name="robots" content="noindex">
+    <link rel="canonical" href="https://aeroklub.14-200.pl/mapa/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pl_PL">
+    <meta property="og:site_name" content="Skrzydła nad Jeziorakiem">
+    <meta property="og:url" content="https://aeroklub.14-200.pl/mapa/">
+    <meta property="og:title" content="Mapa: dojazdy z Iławy do aeroklubów">
+    <meta property="og:description" content="Powiat iławski to biała plama na mapie lotnictwa.">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+            <meta name="theme-color" content="#ffca1a">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header class="top">
+        <div class="top-in">
+            <a class="top-logo" href="/">
+                <span class="badge"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i></span>
+                <span>Skrzydła nad Jeziorakiem<small>Lotnictwo Iławy i powiatu iławskiego</small></span>
+            </a>
+            <nav class="top-links" aria-label="Strony projektu">
+                <a href="/">O projekcie</a>
+                <a href="/historia/">Historia</a>
+                <a href="/mapa/" aria-current="page">Mapa</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="wrap wrap-wide">
+        <nav class="crumbs" aria-label="Okruszki"><a href="/">Skrzydła nad Jeziorakiem</a> › Mapa</nav>
+        <span class="kicker">Mapa</span>
+        <h1>Dojazdy do aeroklubów i biała plama</h1>
+        <p class="lead" style="max-width:760px">Z Iławy do najbliższego aeroklubu jest około godziny jazdy samochodem. W samym powiecie iławskim nie ma lądowiska dla samolotów ani szybowców.</p>
+
+        <div id="mapa" class="map" role="region" aria-label="Mapa tras z Iławy do aeroklubów"></div>
+        <div class="legend" aria-hidden="true">
+            <span><span class="sw" style="background:rgba(180,35,24,.18);border:2px dashed #b42318"></span>Biała plama: powiat iławski</span>
+            <span><span class="dot" style="background:#111827"></span>Iława</span>
+            <span><span class="dot" style="background:#a16207"></span>Lądowisko bez aeroklubu</span>
+            <span><span class="sw" style="border-top:2px dotted #6b7280;height:0;border-radius:0"></span>50 i 100 km od Iławy</span>
+        </div>
+
+        <div style="max-width:760px">
+            <h2>Czasy dojazdu</h2>
+            <p class="meta">Trasy i czasy liczy serwis OSRM na podstawie danych OpenStreetMap, bez korków. Odległość w linii prostej liczy strona.</p>
+        </div>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Aeroklub</th><th>Lotnisko</th><th>Linia prosta</th><th>Droga</th><th>Czas jazdy</th></tr>
+                </thead>
+                <tbody id="dojazdy"></tbody>
+            </table>
+        </div>
+
+        <div style="max-width:760px">
+            <h2>Czym jest biała plama</h2>
+            <p>Ewidencja lądowisk Urzędu Lotnictwa Cywilnego (ULC) wymienia w powiecie iławskim tylko lądowisko dla śmigłowców ratunkowych przy szpitalu w Iławie. Najbliższe lądowiska dla samolotów leżą w sąsiednich powiatach, np. Gryźliny pod Olsztynem. Lądowisko w Starym Kamieniu koło Prabut jest poza ewidencją i jego status jest niepewny.</p>
+            <p>Dla mieszkańca to znaczy, że każde szkolenie i każdy lot zaczyna się od dojazdu. Dla pilota z innego regionu to znaczy, że nie może przylecieć nad Jeziorak i wylądować w pobliżu Iławy.</p>
+
+            <h2>Co z tego wynika dla projektu</h2>
+            <ul>
+                <li><strong>Olsztyn-Dajtki</strong> to najbliższy aeroklub z pełnym szkoleniem szybowcowym. To pierwszy kandydat na partnera szkolenia SPL.</li>
+                <li><strong>Grudziądz-Lisie Kąty</strong> jest najbliżej w linii prostej. Teoria przez internet ułatwia naukę w Iławie.</li>
+                <li><strong>Elbląg</strong> to dobra opcja dla północnej części powiatu (Zalewo).</li>
+                <li>Wspólne dojazdy na obozy szkoleniowe obniżają koszt i czas dla kursantów z Iławy.</li>
+            </ul>
+
+            <div class="note alert">
+                <strong>Do sprawdzenia:</strong> status lądowiska w Starym Kamieniu oraz dawne miejsca startów koło Lubawy i Zalewa. Dane na mapie są przybliżone. Przed lotem sprawdź aktualne informacje u operatora lądowiska.
+            </div>
+
+            <h2>Źródła</h2>
+            <ol class="sources">
+                <li><a href="https://ulc.gov.pl/_download/2026/Wykaz_l%C4%85dowisk_cywilnych_25_02_2026.pdf">ULC: Wykaz lądowisk cywilnych, 25 lutego 2026</a></li>
+                <li><a href="https://lotniska.dlapilota.pl/prabuty">dlapilota.pl: Prabuty (Stary Kamień)</a></li>
+                <li><a href="https://lotniska.dlapilota.pl/gryzliny">dlapilota.pl: Gryźliny</a></li>
+                <li><a href="https://lotniska.dlapilota.pl/grudziadz-lisie-katy">dlapilota.pl: Grudziądz-Lisie Kąty</a></li>
+                <li><a href="https://aeroklub.olsztyn.pl/szkolenie-szybowcowe-2/">Aeroklub Warmińsko-Mazurski: szkolenie szybowcowe</a></li>
+                <li>Granica powiatu: <a href="https://github.com/ppatrzyk/polska-geojson">polska-geojson</a> (uproszczona)</li>
+            </ol>
+        </div>
+    </main>
+
+    <footer class="foot">
+        <div class="foot-in">
+            <span>Skrzydła nad Jeziorakiem – grupa lotnicza z Iławy i powiatu iławskiego. Kontakt: <a href="mailto:aeroklub@14-200.pl">aeroklub@14-200.pl</a></span>
+            <span>Strona nie używa ciasteczek ani analityki.</span>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script src="mapa.js"></script>
+</body>
+</html>

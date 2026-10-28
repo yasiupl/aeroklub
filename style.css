@@ -113,7 +113,7 @@ strong { color: var(--ink); }
 .draft i { color: var(--sky); margin-top: 4px; }
 .draft p { margin: 0; }
 
-.cards { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin: 20px 0 8px; }
+.cards { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); margin: 20px 0 8px; }
 .card {
   background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius);
   padding: 18px; box-shadow: var(--shadow);
@@ -177,3 +177,21 @@ td.num { white-space: nowrap; font-variant-numeric: tabular-nums; }
 .foot a { color: var(--ink-3); }
 .sources { font-size: 14px; }
 .sources li { margin: 6px 0; word-break: break-word; }
+
+/* Styl wiki: przypisy, ramka stanowiska grupy, data aktualizacji */
+sup.ref { font-size: .72em; line-height: 0; margin-left: 1px; }
+sup.ref a { text-decoration: none; font-weight: 600; }
+.sources li:target { background: color-mix(in srgb, var(--brand) 25%, transparent); border-radius: 4px; }
+.stance {
+  background: var(--paper); border: 1px solid var(--line); border-left: 4px solid var(--sky);
+  border-radius: 0 var(--radius) var(--radius) 0; padding: 14px 16px; margin: 20px 0; font-size: 16px;
+}
+.stance > b:first-child { display: block; color: var(--sky); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 4px; }
+.toc { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 18px; margin: 24px 0; font-size: 15px; }
+.toc b { color: var(--ink); }
+.toc ol { margin: 6px 0 0; }
+.updated { font-size: 14px; color: var(--ink-3); margin-top: 32px; }
+.facts { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); margin: 20px 0; }
+.fact { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; }
+.fact .n { display: block; font: 900 28px/1.1 Merriweather, Georgia, serif; color: var(--ink); }
+.fact p { margin: 4px 0 0; font-size: 14px; }

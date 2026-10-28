@@ -1,16 +1,18 @@
 # Skrzydła nad Jeziorakiem
 
-Wizytówka grupy lotniczej z Iławy i powiatu iławskiego. Adres: [aeroklub.14-200.pl](https://aeroklub.14-200.pl).
+Wizytówka inicjatywy lotniczej z Iławy i powiatu iławskiego. Adres: [aeroklub.14-200.pl](https://aeroklub.14-200.pl).
 
-Witryna jest bazą wiedzy grupy: opis celów, historia lotnictwa w regionie i mapa dojazdów do aeroklubów.
+Witryna jest bazą wiedzy w stylu wiki. Zbiera argumenty za aeroklubem i lądowiskiem w regionie.
 
 ## Struktura
 
 | Ścieżka | Zawartość |
 | --- | --- |
-| `index.html` | Opis grupy: cele, zasady i kierunki działania. |
-| `historia/index.html` | Artykuł o historii lotnictwa w regionie. |
-| `mapa/index.html` | Mapa dojazdów do aeroklubów i obszaru bez lądowiska. |
+| `index.html` | Strona główna: argumenty za aeroklubem w regionie i cele inicjatywy. |
+| `historia/index.html` | Historia lotnictwa: w Polsce, w regionie, w Iławie po 1945 roku i przed 1945 rokiem. |
+| `mapa/index.html` | Stan obecny: mapa aeroklubów i lądowisk, czasy dojazdu, biała plama. |
+| `mozliwosci/index.html` | Możliwości: szkolenie, wydarzenia, forma organizacji, lądowisko. |
+| `wspolpraca/index.html` | Propozycja współpracy dla aeroklubów. |
 | `mapa/mapa.js` | Dane i logika mapy: aerokluby, lądowiska, trasy. |
 | `mapa/powiat-ilawski.geojson` | Uproszczona granica powiatu iławskiego. |
 | `style.css` | Wspólny arkusz stylów. Kolory są w zmiennych na `:root`. |
@@ -27,9 +29,11 @@ Witryna jest bazą wiedzy grupy: opis celów, historia lotnictwa w regionie i ma
 ## Zmiany w treści
 
 1. Pisz krótkie zdania. Jedno słowo ma jedno znaczenie.
-2. Każdy fakt historyczny lub liczba ma źródło w sekcji „Źródła” na tej samej stronie.
-3. Nie publikuj prywatnych numerów telefonów ani adresów osób prywatnych. Podaj link do strony organizacji.
-4. Aby dodać aeroklub lub lądowisko do mapy, dopisz wpis do tablicy `AEROKLUBY` lub `LADOWISKA` w `mapa/mapa.js`.
+2. Publikuj tylko informacje sprawdzone w źródle. Każdy fakt ma przypis `[n]` do listy „Źródła” na tej samej stronie.
+3. Stanowisko i plany inicjatywy umieszczaj w ramce „Stanowisko inicjatywy” (`.stance`). Nie mieszaj ich z faktami.
+4. Historię sprzed 1945 roku (Deutsch Eylau) opisuj osobno, jako ciekawostkę historyczną.
+5. Nie publikuj prywatnych numerów telefonów ani adresów osób prywatnych. Podaj link do strony organizacji.
+6. Aby dodać aeroklub lub lądowisko do mapy, dopisz wpis do tablicy `AEROKLUBY` lub `LADOWISKA` w `mapa/mapa.js`.
 
 ## Uruchomienie lokalne
 

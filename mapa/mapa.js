@@ -11,22 +11,20 @@
 
   // Aerokluby: cele dojazdów. kolor = kolor trasy i znacznika.
   var AEROKLUBY = [
-    { id: 'olsztyn', nazwa: 'Aeroklub Warmińsko-Mazurski', lotnisko: 'Olsztyn-Dajtki (EPOD)', lat: 53.7731, lon: 20.4161,
-      opis: 'Szkolenie SPL za wyciągarką i za samolotem. Teoria w zimowe weekendy.', www: 'https://aeroklub.olsztyn.pl/', kolor: '#0b5cad' },
+    { id: 'olsztyn', nazwa: 'Aeroklub Warmińsko-Mazurski', lotnisko: 'Olsztyn-Dajtki (EPOD)', lat: 53.7739, lon: 20.4135,
+      opis: 'Szkolenie samolotowe, szybowcowe, motoszybowcowe, ultralekkie i spadochronowe. Aeroklub działa od 1946 roku.', www: 'https://aeroklub.olsztyn.pl/', kolor: '#0b5cad' },
     { id: 'grudziadz', nazwa: 'Aeroklub Nadwiślański', lotnisko: 'Grudziądz-Lisie Kąty (EPGI)', lat: 53.52442, lon: 18.84947,
-      opis: 'Teoria SPL przez internet (e-learning), szybowce, samoloty, balony.', www: 'https://lisie.pl/', kolor: '#7a3fb5' },
-    { id: 'elblag', nazwa: 'Aeroklub Elbląski', lotnisko: 'Elbląg (EPEL)', lat: 54.1407, lon: 19.4234,
-      opis: 'Sekcja szybowcowa. Szkolenie od 14 lat.', www: 'http://aeroklubelblaski.pl/', kolor: '#0f8a5f' },
-    { id: 'gdansk', nazwa: 'Aeroklub Gdański', lotnisko: 'Pruszcz Gdański (EPPR)', lat: 54.2481, lon: 18.6717,
-      opis: 'Aeroklub regionalny Pomorza.', www: 'https://www.aeroklub.gda.pl/', kolor: '#db2777' },
-    { id: 'warszawa', nazwa: 'Aeroklub Warszawski', lotnisko: 'Warszawa-Babice (EPBC)', lat: 52.2685, lon: 20.9110,
-      opis: 'Szybowce w Chrcynnie. Sekcja balonowa prowadzi fiestę w gminie Iława.', www: 'https://aeroklub.waw.pl/', kolor: '#64748b' }
+      opis: 'Kurs szybowcowy (SPL), kursy PPL i LAPL. Wyciągarka szybowcowa i samoloty holujące.', www: 'https://lisie.pl/', kolor: '#7a3fb5' },
+    { id: 'elblag', nazwa: 'Aeroklub Elbląski', lotnisko: 'Elbląg (EPEL)', lat: 54.1412, lon: 19.4231,
+      opis: 'Lotnisko użytku wyłącznego.', www: 'http://aeroklubelblaski.pl/', kolor: '#0f8a5f' },
+    { id: 'warszawa', nazwa: 'Aeroklub Warszawski', lotnisko: 'Warszawa-Babice (EPBC)', lat: 52.2692, lon: 20.9072,
+      opis: 'Współorganizator fiesty balonowej w gminie Iława w 2022 roku.', www: 'https://aeroklub.waw.pl/', kolor: '#64748b' }
   ];
 
   // Inne miejsca lotnicze (bez trasy).
   var LADOWISKA = [
-    { nazwa: 'Gryźliny (EPGR)', lat: 53.60806, lon: 20.34444, opis: 'Lądowisko w ewidencji ULC. Starostwo Powiatowe w Olsztynie. Baza Lotniczego Pogotowia Ratunkowego. Piknik lotniczy.' },
-    { nazwa: 'Stary Kamień k. Prabut', lat: 53.724122, lon: 19.205330, opis: 'Lądowisko poza ewidencją, pas trawiasty 520 × 30 m. Dzierżawa terenu wygasła: status do sprawdzenia przed lotem.' }
+    { nazwa: 'Gryźliny (EPGR)', lat: 53.60806, lon: 20.34444, opis: 'Lądowisko samolotowe w ewidencji ULC od 2007 roku. Zgłaszający: Starostwo Powiatowe w Olsztynie. Obok baza Lotniczego Pogotowia Ratunkowego.' },
+    { nazwa: 'Stary Kamień k. Prabut', lat: 53.724122, lon: 19.205330, opis: 'Lądowisko poza ewidencją ULC, pas trawiasty 520 × 30 m. Dzierżawa terenu się skończyła: lądowisko może być wyłączone z użytkowania.' }
   ];
 
   var map = L.map('mapa', { scrollWheelZoom: false }).setView([53.55, 19.65], window.innerWidth < 600 ? 7 : 8);
@@ -84,7 +82,7 @@
   });
 
   L.marker([START.lat, START.lon], { icon: pin('#111827', 'fa-house'), zIndexOffset: 1000 })
-    .bindPopup('<b>Iława</b><br>Punkt startu. W mieście jest tylko lądowisko dla śmigłowców ratunkowych przy szpitalu.')
+    .bindPopup('<b>Iława</b><br>Punkt startu. Jedyne lądowisko w powiecie w ewidencji ULC: przyszpitalne lądowisko dla śmigłowców.')
     .addTo(map);
 
   LADOWISKA.forEach(function (l) {

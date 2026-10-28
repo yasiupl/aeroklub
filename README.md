@@ -1,54 +1,44 @@
-# Skrzydła nad Jeziorakiem
+# Lotnictwo – Iława i powiat iławski (wiki)
 
-Wizytówka inicjatywy lotniczej z Iławy i powiatu iławskiego. Adres: [aeroklub.14-200.pl](https://aeroklub.14-200.pl).
+Baza wiedzy o lotnictwie w Iławie, powiecie iławskim i regionie Jezioraka. Adres: [aeroklub.14-200.pl](https://aeroklub.14-200.pl).
 
-Witryna jest bazą wiedzy w stylu wiki. Zbiera argumenty za aeroklubem i lądowiskiem w regionie.
+Wiki zawiera tylko informacje. Każda informacja ma przypis do strony źródła.
 
 ## Struktura
 
 | Ścieżka | Zawartość |
 | --- | --- |
-| `index.html` | Strona główna: argumenty za aeroklubem w regionie i cele inicjatywy. |
-| `historia/index.html` | Historia lotnictwa: w Polsce, w regionie, w Iławie po 1945 roku i przed 1945 rokiem. |
-| `mapa/index.html` | Stan obecny: mapa aeroklubów i lądowisk, czasy dojazdu, biała plama. |
-| `mozliwosci/index.html` | Możliwości: szkolenie, wydarzenia, forma organizacji, lądowisko. |
-| `wspolpraca/index.html` | Propozycja współpracy dla aeroklubów. |
-| `mapa/mapa.js` | Dane i logika mapy: aerokluby, lądowiska, trasy. |
-| `mapa/powiat-ilawski.geojson` | Uproszczona granica powiatu iławskiego. |
-| `style.css` | Wspólny arkusz stylów. Kolory są w zmiennych na `:root`. |
-| `vercel.json` | Konfiguracja wdrożenia. |
+| `CLAUDE.md` | Schemat wiki: typy stron, format, zasady i operacje (ingest, query, lint). |
+| `raw/` | Surowe źródła: artykuły, PDF, skany, notatki. Pliki się nie zmieniają. |
+| `wiki/index.md` | Katalog wszystkich stron. |
+| `wiki/log.md` | Rejestr zmian. |
+| `wiki/otwarte-pytania.md` | Luki w wiedzy i informacje do sprawdzenia. |
+| `wiki/tematy/` | Tematy: historia, prawo, problemy. |
+| `wiki/podmioty/` | Aerokluby, lądowiska, wydarzenia. |
+| `wiki/zrodla/` | Jedna strona na jedno źródło. |
+| `site/` | Mapa, arkusz stylów i ikona. |
+| `build.mjs` | Generator strony WWW: `wiki/` → `dist/`. |
 
-## Technologia
+## Dodanie informacji
 
-* Statyczne pliki HTML i CSS. Witryna nie wymaga kroku budowania.
-* Mapa używa biblioteki [Leaflet](https://leafletjs.com) z cdnjs i podkładu [OpenStreetMap](https://www.openstreetmap.org).
-* Trasy drogowe liczy publiczny serwer [OSRM](https://project-osrm.org) w przeglądarce odwiedzającego. Gdy serwer nie odpowiada, mapa rysuje linię prostą.
-* Ikony: Font Awesome z cdnjs. Kroje pisma: Inter i Merriweather z Google Fonts.
-* Witryna nie używa ciasteczek ani analityki.
+1. Dodaj plik do `raw/` albo podaj adres źródła.
+2. Agent dodaje stronę źródła w `wiki/zrodla/`, aktualizuje strony tematów i podmiotów, `index.md` i `log.md`.
 
-## Zmiany w treści
+Szczegóły: `CLAUDE.md`.
 
-1. Pisz krótkie zdania. Jedno słowo ma jedno znaczenie.
-2. Publikuj tylko informacje sprawdzone w źródle. Każdy fakt ma przypis `[n]` do listy „Źródła” na tej samej stronie.
-3. Stanowisko i plany inicjatywy umieszczaj w ramce „Stanowisko inicjatywy” (`.stance`). Nie mieszaj ich z faktami.
-4. Historię sprzed 1945 roku (Deutsch Eylau) opisuj osobno, jako ciekawostkę historyczną.
-5. Nie publikuj prywatnych numerów telefonów ani adresów osób prywatnych. Podaj link do strony organizacji.
-6. Aby dodać aeroklub lub lądowisko do mapy, dopisz wpis do tablicy `AEROKLUBY` lub `LADOWISKA` w `mapa/mapa.js`.
-
-## Uruchomienie lokalne
-
-Uruchom prosty serwer w katalogu repozytorium:
+## Budowanie
 
 ```bash
-python3 -m http.server 8000
+npm install
+node build.mjs
 ```
 
-Otwórz `http://localhost:8000/`. Linki na stronach zaczynają się od `/`, więc otwarcie pliku bezpośrednio z dysku nie działa.
+Wynik jest w `dist/`. Podgląd: `python3 -m http.server -d dist 8000`, potem `http://localhost:8000/`.
+
+Generator zatrzymuje się z błędem, gdy link `[[slug]]` prowadzi do strony, której nie ma.
 
 ## Wdrożenie
 
-Witrynę hostuje Vercel. Push do gałęzi `main` uruchamia wdrożenie produkcyjne. Push do innej gałęzi tworzy wdrożenie podglądowe.
+Vercel: polecenie budowania `node build.mjs`, katalog wyjściowy `dist` (plik `vercel.json`). Push do `main` uruchamia wdrożenie.
 
-## Widoczność w wyszukiwarkach
-
-Strony z wersją roboczą mają znacznik `<meta name="robots" content="noindex">`. Usuń znacznik, gdy treść jest gotowa do publikacji.
+Strony mają znacznik `noindex`. Usuń go w `build.mjs`, gdy wiki ma trafić do wyszukiwarek.

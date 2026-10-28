@@ -1,0 +1,12 @@
+{
+  "name": "aeroklub",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "marked": "15.0.12",
+    "marked-footnote": "1.2.4"
+  }
+}

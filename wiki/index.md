@@ -5,7 +5,7 @@ updated: 2026-11-15
 
 # Lotnictwo w Iławie i powiecie iławskim
 
-Baza wiedzy o lotnictwie w Iławie, powiecie iławskim i regionie Jezioraka. Każda informacja ma przypis do strony źródła. Zasady wiki: plik `CLAUDE.md` w repozytorium.
+Baza wiedzy o lotnictwie w Iławie, powiecie iławskim i regionie Jezioraka.
 
 - [[biala-plama]] – w powiecie iławskim nie ma lądowiska dla samolotów ani szybowców.
 - [[otwarte-pytania]] – luki w wiedzy i informacje do sprawdzenia.
@@ -25,23 +25,31 @@ Baza wiedzy o lotnictwie w Iławie, powiecie iławskim i regionie Jezioraka. Ka�
 ## Podmioty: aerokluby, lądowiska, wydarzenia
 
 - [[aeroklub-elblaski|Aeroklub Elbląski]]
+- [[aeroklub-gdanski|Aeroklub Gdański]]
 - [[aeroklub-nadwislanski|Aeroklub Nadwiślański]]
 - [[aeroklub-polski|Aeroklub Polski]]
 - [[aeroklub-warminsko-mazurski|Aeroklub Warmińsko-Mazurski]]
 - [[aeroklub-warszawski|Aeroklub Warszawski]]
 - [[fiesta-balonowa-gmina-ilawa|Fiesta Balonowa o Puchar Wójta Gminy Iława]]
 - [[lotnicza-majowka|Lotnicza Majówka (Iława)]]
+- [[ladowisko-borsk|Lądowisko Borsk (EPBO)]]
 - [[ladowisko-gryzliny|Lądowisko Gryźliny]]
 - [[ladowisko-ilawa-szpital|Lądowisko Iława – Szpital]]
 - [[ladowisko-stary-kamien|Lądowisko Stary Kamień (Prabuty)]]
+- [[lotnisko-ostroda-1912|Lotnisko w Ostródzie (1912)]]
 - [[pomorska-szkola-szybowcowa|Pomorska Szkoła Szybowcowa]]
 
 ## Źródła
 
 - [[kmdg-laskowski-modelarstwo-grudziadz|A. Laskowski: 85 lat modelarstwa lotniczego w Grudziądzu 1931–2016 (Biuletyn KMDG, 2016)]]
 - [[lisie-katy-historia|Aeroklub Nadwiślański: Lotnisko EPGI Lisie Kąty – historia, infrastruktura i jak tu trafić]]
+- [[aeroklub-elblaski-o-nas|Aeroklub Elbląski: O nas]]
 - [[aeroklub-polski-historia|Aeroklub Polski: Historia AP]]
+- [[awm-lista-szkolen|Aeroklub Warmińsko-Mazurski: lista szkoleń]]
 - [[awm-szkolenie-szybowcowe-2015|Aeroklub Warmińsko-Mazurski: Szkolenie szybowcowe (ogłoszenie z 2015 r.)]]
+- [[awm-szkolenie-szybowcowe|Aeroklub Warmińsko-Mazurski: szkolenie szybowcowe (strona oferty)]]
+- [[awm-szkolenie-szybowcowe-2026|Aeroklub Warmińsko-Mazurski: Szkolenie szybowcowe 2026 r.]]
+- [[aeroklub-waw-fiesta-2018|Aeroklub Warszawski: I Fiesta Balonowa o Puchar Wójta Gminy Iława]]
 - [[afterburner-majowka-2019|Afterburner: Lotnicza Majówka Iława 2019]]
 - [[dlapilota-80-lat-awm|dlapilota.pl: 80 lat Aeroklubu Warmińsko-Mazurskiego]]
 - [[dlapilota-fiesta-2019|dlapilota.pl: II Fiesta Balonowa Iława 2019]]
@@ -52,17 +60,23 @@ Baza wiedzy o lotnictwie w Iławie, powiecie iławskim i regionie Jezioraka. Ka�
 - [[dlapilota-prabuty|dlapilota.pl: Lotniska – Prabuty (Stary Kamień)]]
 - [[dlapilota-warszawa-babice|dlapilota.pl: Lotniska – Warszawa-Babice]]
 - [[infoilawa-dali-w-pole-2023|Info Iława: Dali w pole. O przygodnych lądowaniach w okolicach Iławy]]
+- [[infoilawa-fiesta-2018|Info Iława: pierwsze akcenty I Fiesty Balonowej (2018)]]
 - [[infoilawa-majowka-siemiany-2022|Info Iława: Lotnicza Majówka z Iławy leci do Siemian]]
+- [[infoilawa-an2-rudzienice-2025|Info Iława: samolot ze stacji benzynowej w Rudzienicach]]
 - [[infoilawa-lotnisko-1914|Info Iława: Lotnisko i szpital dla obłąkanych]]
 - [[infoilawa-majowka-2017|Info Iława: relacja z Lotniczej Majówki 2017]]
 - [[infoilawa-fiesta-2022|Info Iława: V Balonowa Fiesta już za nami]]
 - [[infoilawa-fiesta-2025|Info Iława: W gminie Iława startuje 8. Fiesta Balonowa]]
 - [[infoilawa-majowka-2018|Info Iława: zapowiedź Lotniczej Majówki 2018]]
 - [[kmdg-guttmann-lotnictwo-w-grudziadzu|J. Guttmann: Lotnictwo w Grudziądzu (Biuletyn KMDG, 2018)]]
+- [[kreisgemeinschaft-osterode-chronik|Kreisgemeinschaft Osterode Ostpreußen: Chronik der Stadt Osterode]]
 - [[kurier-ilawski-upadek-deutsch-eylau|Kurier Iławski: Wycieczki historyczne. Upadek Deutsch Eylau]]
 - [[doskocz-ladowiska-nieewidencjonowane|M. Doskocz: Lądowanie w terenie przygodnym, czyli lądowiska nieewidencjonowane]]
 - [[polska-geojson|ppatrzyk/polska-geojson: granice powiatów]]
+- [[szybowce-eu-o-nas|Pomorska Szkoła Szybowcowa: O nas]]
 - [[radio-olsztyn-ladowisko-szpital-2017|Radio Olsztyn: Iława ma całodobowe lotnisko dla helikopterów]]
+- [[trojmiasto-pss-2025|trojmiasto.pl: rozmowa z Tomaszem Siedlarem o Pomorskiej Szkole Szybowcowej]]
 - [[ulc-wykaz-ladowisk-2026|ULC: Wykaz lądowisk cywilnych (25.02.2026)]]
+- [[ulc-wykaz-ladowisk-2026-06|ULC: Wykaz lądowisk cywilnych (16.06.2026)]]
 - [[ulc-zakladanie-ladowisk|ULC: Zakładanie lądowisk – wymagania dotyczące dokumentów]]
 - [[zycie-olsztyna-gryzliny-2026|Życie Olsztyna: Niebo nad Gryźlinami znów zapłonie]]

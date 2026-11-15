@@ -1,8 +1,8 @@
 ---
 title: "Deutsch Eylau: lotnictwo przed 1945 rokiem"
 type: temat
-updated: 2026-10-28
-sources: [infoilawa-lotnisko-1914, kurier-ilawski-upadek-deutsch-eylau]
+updated: 2026-11-15
+sources: [infoilawa-lotnisko-1914, kurier-ilawski-upadek-deutsch-eylau, kreisgemeinschaft-osterode-chronik]
 ---
 
 # Deutsch Eylau: lotnictwo przed 1945 rokiem
@@ -17,9 +17,14 @@ Do 1945 r. Iława była niemieckim miastem Deutsch Eylau. Ta strona opisuje lotn
 - Hangar zbudowało miasto z organizacjami lotniczymi i wojskowymi. W 1918 r. hangar rozebrano[^1914].
 - Położenie: wylot drogi na Lubawę, na terenie dzisiejszego Osiedla Lubawskiego[^1914].
 
+## Sąsiedztwo: Ostróda
+
+- Kronika miasta Osterode (dzisiejsza Ostróda) odnotowuje w 1912 r. otwarcie lotniska. Kronika nie podaje położenia ani dalszych szczegółów. Zobacz [[lotnisko-ostroda-1912]][^chr].
+
 ## 1945
 
 - 19 stycznia 1945 r. nad Iławę nadleciały dwa radzieckie bombowce. Pierwsze bomby spadły w okolicy dworca kolejowego[^kur].
 
 [^1914]: [[infoilawa-lotnisko-1914]]
 [^kur]: [[kurier-ilawski-upadek-deutsch-eylau]]
+[^chr]: [[kreisgemeinschaft-osterode-chronik]]

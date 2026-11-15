@@ -80,24 +80,35 @@ for (const p of pages.values()) for (const s of p.links) {
 }
 
 // ---- HTML -----------------------------------------------------------------
-// Colour variables come from the brand tokens: theme "light" is the default, theme "dark" follows the system.
+// Colour variables come from the brand tokens. Theme "light" is the default for everyone.
+// Theme "dark" is on only when the visitor turns it on with the switch in the header (data-theme="dark").
 const tokens = JSON.parse(fs.readFileSync(path.join(MARKA, 'tokens.json'), 'utf8')).color.tokens;
 const vars = (theme) => tokens.map((t) => `--${t.name}:${t.value[theme]}`).join(';');
-const CSS = `:root{color-scheme:light dark;${vars('light')}}\n@media (prefers-color-scheme:dark){:root{${vars('dark')}}}\n`
+const CSS = `:root{color-scheme:light;${vars('light')}}\n:root[data-theme="dark"]{color-scheme:dark;${vars('dark')}}\n`
   + fs.readFileSync(path.join(SITE, 'style.css'), 'utf8');
+const THEME_KEY = 'aviava-motyw';
+// Runs in <head> before the page is drawn, so the saved theme does not flash.
+const THEME_HEAD = `<script>try{if(localStorage.getItem('${THEME_KEY}')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>`;
+const THEME_SWITCH = `<button class="theme" type="button" aria-pressed="false" hidden><span class="vh">Wersja ciemna</span><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path class="moon" d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/><g class="sun"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></g></svg></button>`;
+const THEME_TAIL = `<script>(function(){var b=document.querySelector('.theme'),r=document.documentElement;if(!b)return;b.hidden=false;
+function set(d){if(d)r.dataset.theme='dark';else delete r.dataset.theme;b.setAttribute('aria-pressed',d?'true':'false');b.title=d?'Wersja jasna':'Wersja ciemna';}
+set(r.dataset.theme==='dark');b.addEventListener('click',function(){var d=r.dataset.theme!=='dark';set(d);try{if(d)localStorage.setItem('${THEME_KEY}','dark');else localStorage.removeItem('${THEME_KEY}')}catch(e){}});})();</script>`;
+// Logo in both versions: CSS shows the one that matches the theme.
+const both = (name, dark, attrs) => `<img class="v-light" src="/marka/${name}.svg" ${attrs}><img class="v-dark" src="/marka/${dark}.svg" ${attrs}>`;
 
 const NAV = [
   ['/', 'Start'],
+  ['/znak/', 'Znak'],
   [`${WIKI_URL}/`, 'Baza wiedzy'],
   [`${WIKI_URL}/mapa/`, 'Mapa'],
   ['/#kontakt', 'Kontakt'],
 ];
 
-function layout({ title, url, content, head = '', tail = '', home = false, description = '' }) {
-  const fullTitle = home ? HOME_TITLE : url === `${WIKI_URL}/` ? WIKI_NAME : `${title} – ${WIKI_NAME}`;
-  const section = home ? '/' : url === `${WIKI_URL}/mapa/` ? url : `${WIKI_URL}/`;
+function layout({ title, url, content, head = '', tail = '', home = false, page = false, description = '' }) {
+  const fullTitle = home ? HOME_TITLE : page ? `${title} – ${SITE_NAME}` : url === `${WIKI_URL}/` ? WIKI_NAME : `${title} – ${WIKI_NAME}`;
+  const section = home || page || url === `${WIKI_URL}/mapa/` ? url : `${WIKI_URL}/`;
   const nav = NAV.map(([href, text]) => `<a href="${href}"${href === section ? ' aria-current="page"' : ''}>${text}</a>`).join(' ');
-  const wikiFooter = home ? '' : `<p>Baza wiedzy: każda informacja ma przypis do źródła. <a href="${WIKI_URL}/otwarte-pytania/">Otwarte pytania</a> · <a href="${WIKI_URL}/log/">Zmiany</a></p>\n`;
+  const wikiFooter = home || page ? '' : `<p>Baza wiedzy: każda informacja ma przypis do źródła. <a href="${WIKI_URL}/otwarte-pytania/">Otwarte pytania</a> · <a href="${WIKI_URL}/log/">Zmiany</a></p>\n`;
   return `<!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -111,19 +122,21 @@ ${description ? `<meta name="description" content="${esc(description)}">\n` : ''
 <meta property="og:image" content="${SITE_URL}/marka/aviava-tlo.png">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/fonts/brygada1918-bold.woff2" as="font" type="font/woff2" crossorigin>
+${THEME_HEAD}
 <style>${CSS}</style>
 ${head}</head>
-<body${home ? ' class="home"' : ''}>
-<header class="bar"><div class="bar-in"><a class="name" href="/"><picture><source media="(prefers-color-scheme: dark)" srcset="/marka/aviava-sygnet-ciemny.svg"><img src="/marka/aviava-sygnet.svg" alt="" width="40" height="40"></picture>${esc(SITE_NAME)}</a>
-<nav aria-label="Główna">${nav}</nav></div></header>
+<body${home || page ? ' class="home"' : ''}>
+<header class="bar"><div class="bar-in"><a class="name" href="/">${both('aviava-sygnet', 'aviava-sygnet-ciemny', 'alt="" width="40" height="40"')}${esc(SITE_NAME)}</a>
+<nav aria-label="Główna">${nav}</nav>${THEME_SWITCH}</div></header>
 <main>
 ${content}
 </main>
 <footer><div class="in">
-<p>Aviava – grupa lotnicza z Iławy i powiatu iławskiego. Kontakt: <a href="mailto:aeroklub@14-200.pl">aeroklub@14-200.pl</a></p>
+<p>Aviava – grupa lotnicza z Iławy i powiatu iławskiego. Kontakt: <a href="mailto:aviava@14-200.pl">aviava@14-200.pl</a></p>
 ${wikiFooter}<p>Obrys jezior w znaku: „Mapa Jeziora Jeziorak”, autor Marcin n, Wikimedia Commons, licencja <a href="https://creativecommons.org/licenses/by-sa/2.5/">CC BY-SA 2.5</a>. Kroje pisma: Brygada 1918 i Lato, licencja SIL OFL 1.1.</p>
 <p>Kod strony: <a href="https://github.com/yasiupl/aeroklub">github.com/yasiupl/aeroklub</a>. Strona nie używa ciasteczek.</p>
 </div></footer>
+${THEME_TAIL}
 ${tail}</body>
 </html>
 `;
@@ -160,7 +173,24 @@ function out(url, html) {
 for (const p of pages.values()) out(p.url, render(p));
 
 // Home page
-out('/', layout({ title: HOME_TITLE, url: '/', home: true, description: HOME_DESC, content: fs.readFileSync(path.join(SITE, 'home.html'), 'utf8') }));
+const withLogos = (html) => html.replace(/\{\{logo:([\w-]+):([\w-]+):([^}]*)\}\}/g, (_, a, b, attrs) => both(a, b, attrs));
+out('/', layout({ title: HOME_TITLE, url: '/', home: true, description: HOME_DESC, content: withLogos(fs.readFileSync(path.join(SITE, 'home.html'), 'utf8')) }));
+
+// Brand page: the colour table comes from marka/tokens.json
+const SWATCHES = [
+  ['rim', 'Obrzeże'], ['band', 'Otok'], ['field', 'Pole'], ['water', 'Woda'], ['town', 'Iława'], ['lettering', 'Napisy'],
+];
+const tok = Object.fromEntries(tokens.map((t) => [t.name, t.value]));
+const swatchRow = (theme, name) => `<div class="palette"><p class="pal-name">${name}</p><ul>${SWATCHES.map(([k, label]) =>
+  `<li><span class="chip" style="background:${tok[k][theme]}"></span><b>${label}</b><code>${tok[k][theme]}</code></li>`).join('')}</ul></div>`;
+const paleta = swatchRow('light', 'Wersja jasna') + swatchRow('dark', 'Wersja ciemna')
+  + `<div class="palette"><p class="pal-name">Fale (flaga, proporczyk)</p><ul>${[['flag-blue', 'Niebieski'], ['flag-white', 'Biały']].map(([k, label]) =>
+    `<li><span class="chip" style="background:${tok[k].light}"></span><b>${label}</b><code>${tok[k].light}</code></li>`).join('')}</ul></div>`;
+out('/znak/', layout({
+  title: 'Znak', url: '/znak/', page: true,
+  description: 'Znak Aviava: symbolika, wersja jasna i ciemna, kolory, typografia i pliki do pobrania.',
+  content: fs.readFileSync(path.join(SITE, 'znak.html'), 'utf8').replace('{{paleta}}', paleta),
+}));
 
 // Map page
 const MAP_URL = `${WIKI_URL}/mapa/`;
@@ -185,12 +215,13 @@ copy(path.join(SITE, 'mapa.js'), `${MAP_URL}mapa.js`);
 copy(path.join(SITE, 'powiat-ilawski.geojson'), `${MAP_URL}powiat-ilawski.geojson`);
 
 // Brand files and fonts
-for (const f of ['aviava-naszywka-jasna.svg', 'aviava-naszywka-ciemna.svg', 'aviava-sygnet.svg', 'aviava-sygnet-ciemny.svg']) {
-  copy(path.join(MARKA, 'svg', f), `/marka/${f}`);
+for (const n of ['naszywka-jasna', 'naszywka-ciemna', 'sygnet', 'sygnet-ciemny', 'flaga', 'proporczyk', 'odznaka']) {
+  copy(path.join(MARKA, 'svg', `aviava-${n}.svg`), `/marka/aviava-${n}.svg`);
+  copy(path.join(MARKA, 'png', `aviava-${n}-2048.png`), `/marka/aviava-${n}-2048.png`);
 }
 copy(path.join(MARKA, 'media-spolecznosciowe', 'facebook-tlo-jasna.png'), '/marka/aviava-tlo.png');
 copy(path.join(MARKA, 'svg', 'aviava-sygnet.svg'), '/favicon.svg');
 for (const f of fs.readdirSync(path.join(SITE, 'fonts'))) copy(path.join(SITE, 'fonts', f), `/fonts/${f}`);
 for (const f of fs.readdirSync(path.join(SITE, 'img'))) copy(path.join(SITE, 'img', f), `/img/${f}`);
 
-console.log(`Built the home page, ${pages.size} wiki pages and the map into dist/.`);
+console.log(`Built the home page, the brand page, ${pages.size} wiki pages and the map into dist/.`);

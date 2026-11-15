@@ -15,7 +15,12 @@
   --link:var(--field);
   --wide:68rem;--text:46rem;
 }
-@media (prefers-color-scheme:dark){:root{--link:var(--lettering)}}
+:root[data-theme="dark"]{--link:var(--lettering)}
+/* Logo in two versions: the theme selects one */
+.v-dark{display:none!important}
+:root[data-theme="dark"] .v-light{display:none!important}
+:root[data-theme="dark"] .v-dark{display:block!important}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--surface);color:var(--ink);font:16px/24px var(--sans)}
@@ -64,6 +69,7 @@ footer p{margin:0}
 .hero .sub{font:600 24px/30px var(--display);margin:0 0 24px}
 .hero .lead{font-size:20px;line-height:30px;margin:0 0 24px;max-width:34rem}
 .hero .patch{display:block;width:100%;max-width:22rem;margin:0 auto}
+.hero .patch img{display:block;width:100%;height:auto}
 .btns{display:flex;flex-wrap:wrap;gap:16px}
 .btn{display:inline-block;padding:10px 20px;border-radius:4px;font-weight:700;text-decoration:none;border:2px solid var(--lettering);color:var(--lettering)}
 .btn:hover{background:color-mix(in srgb,var(--lettering) 14%,transparent)}
@@ -89,11 +95,47 @@ footer p{margin:0}
 .person h3{font:700 20px/26px var(--display);margin:16px 0 0}
 .person .role{font-size:13px;line-height:18px;color:var(--muted);margin:4px 0 0;text-transform:uppercase;letter-spacing:.08em}
 .person p{margin:8px 0 0}
-.mark{display:grid;grid-template-columns:minmax(0,12rem) minmax(0,1fr);gap:24px;align-items:start;margin:24px 0}
+.mark{display:grid;grid-template-columns:minmax(0,10rem) minmax(0,1fr);gap:24px;align-items:center;margin:24px 0;max-width:var(--text)}
+.mark img{width:100%;max-width:10rem}
 .mark dl{margin:0;display:grid;gap:8px}
 .mark dt{font-weight:700}
 .mark dd{margin:0}
-@media (prefers-color-scheme:dark){.card{border-top-color:var(--rim)}}
+:root[data-theme="dark"] .card{border-top-color:var(--rim)}
+/* Theme switch */
+.theme{display:inline-grid;place-items:center;width:36px;height:36px;margin-left:4px;padding:0;border:1px solid color-mix(in srgb,var(--lettering) 45%,transparent);border-radius:50%;background:transparent;color:var(--lettering);cursor:pointer}
+.theme:hover{background:color-mix(in srgb,var(--lettering) 14%,transparent)}
+.theme svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+.theme .moon{fill:currentColor;stroke:none}
+.theme .sun{display:none}
+:root[data-theme="dark"] .theme .moon{display:none}
+:root[data-theme="dark"] .theme .sun{display:inline}
+.bar nav{align-items:center;margin-left:auto}
+@media (max-width:760px){.bar .name{order:0}.theme{order:1;margin-left:auto}.bar nav{order:2;width:100%;margin-left:0;gap:0 20px}}
+/* Brand page */
+.hero-znak .sub{margin:0 0 8px}
+.hero-znak h1{font-size:48px;line-height:52px;letter-spacing:.04em;text-transform:none}
+.symbols{list-style:none;padding:0;margin:24px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:16px 32px;counter-reset:s}
+.symbols li{margin:0;padding:0 0 0 48px;position:relative;counter-increment:s}
+.symbols li::before{content:counter(s);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:var(--field);color:var(--lettering);border:2px solid var(--rim);display:grid;place-items:center;font:700 15px/1 var(--display)}
+.symbols h3{font:700 20px/26px var(--display);margin:2px 0 4px}
+.symbols p{margin:0}
+.versions{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:32px;margin:24px 0}
+.versions figure{margin:0}
+.versions img{display:block;width:100%;max-width:18rem;margin:0 auto 16px}
+.palette{margin:16px 0}
+.palette .pal-name{font-weight:700;margin:0 0 8px}
+.palette ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:12px}
+.palette li{margin:0;display:grid;grid-template-columns:40px auto;grid-template-rows:auto auto;column-gap:8px;align-items:center;min-width:9rem}
+.palette .chip{grid-row:span 2;width:40px;height:40px;border-radius:50%;border:1px solid var(--line)}
+.palette b{font-size:14px;line-height:18px}
+.palette code{background:none;padding:0;font-size:13px;color:var(--muted)}
+.uses{list-style:none;padding:0;margin:24px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:24px}
+.uses li{margin:0}
+.uses img{display:block;width:100%;height:140px;margin:0 0 12px;object-fit:contain;object-position:left center}
+.uses p{margin:0}
+.type{max-width:var(--text)}
+.type-display{font:700 40px/48px var(--display);letter-spacing:.08em;margin:8px 0 4px}
+.type-text{font:700 32px/40px var(--sans);margin:24px 0 4px}
 @media (max-width:760px){
   .hero-in{grid-template-columns:1fr;gap:24px;padding:32px 16px}
   .hero .patch{max-width:16rem;order:-1}

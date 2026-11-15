@@ -17,6 +17,7 @@ Wiki zawiera tylko informacje. Każda informacja ma przypis do strony źródła.
 | `wiki/podmioty/` | Aerokluby, lądowiska, wydarzenia. |
 | `wiki/zrodla/` | Jedna strona na jedno źródło. |
 | `site/home.html` | Strona główna: misja, pierwsza edycja, znak, kontakt. |
+| `site/znak.html` | Podstrona `/znak/`: symbolika znaku, wersja jasna i ciemna, kolory, pliki do pobrania. |
 | `site/` | Arkusz stylów, fonty (Brygada 1918, Lato), mapa. |
 | `marka/` | Znak Aviava: księga znaku (`README.md`), tokeny kolorów, logotypy SVG i PNG, wersja do haftu, grafiki do mediów społecznościowych, generator. |
 | `build.mjs` | Generator strony WWW: `wiki/` → `dist/`. |

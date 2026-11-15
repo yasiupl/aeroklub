@@ -13,7 +13,7 @@ Mapa: [/wiki/mapa/](/wiki/mapa/).
 
 ## Odległości z Iławy
 
-Obliczenie: odległość po kole wielkim (wzór haversine, promień Ziemi 6371 km) od punktu 53,5965° N, 19,5685° E (centrum Iławy) do współrzędnych lotnisk ze źródeł. Wynik zaokrąglony do 1 km.
+Odległość w linii prostej od centrum Iławy, zaokrąglona do 1 km.
 
 | Lotnisko | Podmiot | Odległość | Źródło współrzędnych |
 | --- | --- | --- | --- |

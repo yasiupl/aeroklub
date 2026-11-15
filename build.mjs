@@ -12,8 +12,8 @@ const DIST = path.join(ROOT, 'dist');
 const MARKA = path.join(ROOT, 'marka');
 const SITE_URL = 'https://aviava.14-200.pl';
 const SITE_NAME = 'Aviava';
-const HOME_TITLE = 'Aviava – grupa lotnicza z Iławy';
-const HOME_DESC = 'Aviava to grupa lotnicza z Iławy i powiatu iławskiego. Zaczynamy od szybowców: teoria w Iławie, praktyka w szkole partnerskiej.';
+const HOME_TITLE = 'Aviava – grupa lotnicza z regionu Iławy';
+const HOME_DESC = 'Aviava to grupa lotnicza z regionu Iławy. Zaczynamy od szybowców: teoria w Iławie, praktyka w szkole partnerskiej.';
 const WIKI_NAME = 'Baza wiedzy Aviava';
 const WIKI_URL = '/wiki'; // URL prefix of the wiki
 // Visitor statistics: self-hosted Plausible at plausible.yasiu.pl (no cookies, no personal data).
@@ -116,7 +116,6 @@ function layout({ title, url, content, head = '', tail = '', home = false, page 
   const fullTitle = home ? HOME_TITLE : page ? `${title} – ${SITE_NAME}` : url === `${WIKI_URL}/` ? WIKI_NAME : `${title} – ${WIKI_NAME}`;
   const section = home || page || url === `${WIKI_URL}/mapa/` ? url : `${WIKI_URL}/`;
   const nav = NAV.map(([href, text]) => `<a href="${href}"${href === section ? ' aria-current="page"' : ''}>${text}</a>`).join(' ');
-  const wikiFooter = home || page ? '' : `<p>Baza wiedzy: każda informacja ma przypis do źródła. <a href="${WIKI_URL}/otwarte-pytania/">Otwarte pytania</a> · <a href="${WIKI_URL}/log/">Zmiany</a></p>\n`;
   return `<!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -141,9 +140,8 @@ ${head}</head>
 ${content}
 </main>
 <footer><div class="in">
-<p>Aviava – grupa lotnicza z Iławy i powiatu iławskiego. Kontakt: <a href="mailto:aviava@14-200.pl">aviava@14-200.pl</a> · <a href="/kontakt/">wszystkie sprawy</a></p>
-${wikiFooter}<p>Obrys jezior w znaku: „Mapa Jeziora Jeziorak”, autor Marcin n, Wikimedia Commons, licencja <a href="https://creativecommons.org/licenses/by-sa/2.5/">CC BY-SA 2.5</a>. Kroje pisma: Brygada 1918 i Lato, licencja SIL OFL 1.1.</p>
-<p>Wykonanie strony: <a href="https://14-200.pl">14-200.pl</a>. Kod strony: <a href="https://github.com/yasiupl/aeroklub">github.com/yasiupl/aeroklub</a>. Strona nie używa ciasteczek.</p>
+<p>Aviava – grupa lotnicza z regionu Iławy. <a href="/kontakt/">Kontakt</a></p>
+<p>Wykonanie: <a href="https://14-200.pl">14-200.pl</a>. Strona nie używa ciasteczek.</p>
 </div></footer>
 ${THEME_TAIL}
 ${tail}</body>
@@ -215,10 +213,11 @@ out('/znak/', layout({
 const MAP_URL = `${WIKI_URL}/mapa/`;
 const mapContent = `<p class="crumb"><a href="${WIKI_URL}/">Baza wiedzy</a></p>
 <h1>Mapa: aerokluby, lądowiska i dojazdy z Iławy</h1>
-<p>Czerwony obszar: powiat iławski bez lądowiska dla samolotów i szybowców (<a href="${WIKI_URL}/tematy/biala-plama/">biała plama</a>). Współrzędne lotnisk pochodzą ze stron źródeł. Drogę i czas jazdy liczy serwer OSRM na podstawie danych OpenStreetMap, bez korków.</p>
+<p>Czerwony obszar: powiat iławski bez lądowiska dla samolotów i szybowców (<a href="${WIKI_URL}/tematy/biala-plama/">biała plama</a>).</p>
 <div id="mapa" class="map" role="region" aria-label="Mapa"></div>
 <h2>Dojazdy z Iławy</h2>
-<div class="table-wrap"><table><thead><tr><th>Aeroklub</th><th>Lotnisko</th><th>Linia prosta</th><th>Droga</th><th>Czas jazdy</th></tr></thead><tbody id="dojazdy"></tbody></table></div>`;
+<div class="table-wrap"><table><thead><tr><th>Aeroklub</th><th>Lotnisko</th><th>Linia prosta</th><th>Droga</th><th>Czas jazdy</th></tr></thead><tbody id="dojazdy"></tbody></table></div>
+<p class="meta">Współrzędne lotnisk pochodzą ze stron źródeł. Drogę i czas jazdy liczy serwer OSRM na podstawie danych OpenStreetMap, bez korków.</p>`;
 out(MAP_URL, layout({
   title: 'Mapa',
   url: MAP_URL,

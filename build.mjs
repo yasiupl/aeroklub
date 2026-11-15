@@ -141,7 +141,7 @@ ${content}
 </main>
 <footer><div class="in">
 <p>Aviava – grupa lotnicza z regionu Iławy. <a href="/kontakt/">Kontakt</a></p>
-<p>Wykonanie: <a href="https://14-200.pl">14-200.pl</a>. Strona nie używa ciasteczek.</p>
+<p>Wykonanie: <a href="https://14-200.pl">14-200.pl</a>. Strona nie używa ciasteczek. Facebook może je zapisać, jeśli na stronie głównej klikniesz „Pokaż aktualności z Facebooka”.</p>
 </div></footer>
 ${THEME_TAIL}
 ${tail}</body>
@@ -181,7 +181,7 @@ for (const p of pages.values()) out(p.url, render(p));
 
 // Home page
 const withLogos = (html) => html.replace(/\{\{logo:([\w-]+):([\w-]+):([^}]*)\}\}/g, (_, a, b, attrs) => both(a, b, attrs));
-out('/', layout({ title: HOME_TITLE, url: '/', home: true, description: HOME_DESC, content: withLogos(fs.readFileSync(path.join(SITE, 'home.html'), 'utf8')) }));
+out('/', layout({ title: HOME_TITLE, url: '/', home: true, description: HOME_DESC, content: withLogos(fs.readFileSync(path.join(SITE, 'home.html'), 'utf8')), tail: '<script src="/aktualnosci.js" defer></script>\n' }));
 
 // Brand page: the colour table comes from marka/tokens.json
 const SWATCHES = [
@@ -229,6 +229,7 @@ const copy = (from, to) => {
   fs.mkdirSync(path.dirname(path.join(DIST, to)), { recursive: true });
   fs.copyFileSync(from, path.join(DIST, to));
 };
+copy(path.join(SITE, 'aktualnosci.js'), '/aktualnosci.js');
 copy(path.join(SITE, 'mapa.js'), `${MAP_URL}mapa.js`);
 copy(path.join(SITE, 'powiat-ilawski.geojson'), `${MAP_URL}powiat-ilawski.geojson`);
 

@@ -111,6 +111,12 @@ footer p{margin:0}
 :root[data-theme="dark"] .theme .sun{display:inline}
 .bar nav{align-items:center;margin-left:auto}
 @media (max-width:760px){.bar .name{order:0}.theme{order:1;margin-left:auto}.bar nav{order:2;width:100%;margin-left:0;gap:0 20px}}
+/* News: Facebook Page Plugin loaded on click */
+.feed{max-width:500px;margin:16px 0}
+.btn-feed{font:700 16px/24px var(--sans);padding:10px 20px;border-radius:4px;border:2px solid var(--field);background:var(--field);color:#fff;cursor:pointer}
+.btn-feed:hover{background:color-mix(in srgb,var(--field) 86%,#000)}
+.feed-note{font-size:13px;line-height:18px;color:var(--muted);margin:8px 0 0}
+.fb-plugin{display:block;max-width:100%;border:0;overflow:hidden;border-radius:4px;background:#fff}
 /* Contact page */
 .mail-big{font:700 28px/36px var(--display);margin:16px 0 8px;word-break:break-word}
 .contact .card{display:flex;flex-direction:column}

@@ -16,6 +16,14 @@ const HOME_TITLE = 'Aviava – grupa lotnicza z Iławy';
 const HOME_DESC = 'Aviava to grupa lotnicza z Iławy i powiatu iławskiego. Zaczynamy od szybowców: teoria w Iławie, praktyka w szkole partnerskiej.';
 const WIKI_NAME = 'Baza wiedzy Aviava';
 const WIKI_URL = '/wiki'; // URL prefix of the wiki
+// Visitor statistics: self-hosted Plausible at plausible.yasiu.pl (no cookies, no personal data).
+// The snippet comes from the site settings in the Plausible dashboard; the script file is specific to this site.
+const PLAUSIBLE = `<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.yasiu.pl/js/pa-qmN6ge7u7juRv2pQF8HLn.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>`;
 
 // ---- Read all pages -------------------------------------------------------
 function walk(dir) {
@@ -121,6 +129,7 @@ ${description ? `<meta name="description" content="${esc(description)}">\n` : ''
 <meta property="og:url" content="${SITE_URL}${url}">
 <meta property="og:image" content="${SITE_URL}/marka/aviava-tlo.png">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+${PLAUSIBLE}
 <link rel="preload" href="/fonts/brygada1918-bold.woff2" as="font" type="font/woff2" crossorigin>
 ${THEME_HEAD}
 <style>${CSS}</style>
@@ -134,7 +143,7 @@ ${content}
 <footer><div class="in">
 <p>Aviava – grupa lotnicza z Iławy i powiatu iławskiego. Kontakt: <a href="mailto:aviava@14-200.pl">aviava@14-200.pl</a> · <a href="/kontakt/">wszystkie sprawy</a></p>
 ${wikiFooter}<p>Obrys jezior w znaku: „Mapa Jeziora Jeziorak”, autor Marcin n, Wikimedia Commons, licencja <a href="https://creativecommons.org/licenses/by-sa/2.5/">CC BY-SA 2.5</a>. Kroje pisma: Brygada 1918 i Lato, licencja SIL OFL 1.1.</p>
-<p>Kod strony: <a href="https://github.com/yasiupl/aeroklub">github.com/yasiupl/aeroklub</a>. Strona nie używa ciasteczek.</p>
+<p>Wykonanie strony: <a href="https://14-200.pl">14-200.pl</a>. Kod strony: <a href="https://github.com/yasiupl/aeroklub">github.com/yasiupl/aeroklub</a>. Strona nie używa ciasteczek.</p>
 </div></footer>
 ${THEME_TAIL}
 ${tail}</body>

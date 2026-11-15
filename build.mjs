@@ -140,7 +140,7 @@ ${head}</head>
 ${content}
 </main>
 <footer><div class="in">
-<p>Aviava – grupa lotnicza z regionu Iławy. <a href="/kontakt/">Kontakt</a></p>
+<p>Aviava – grupa lotnicza z regionu Iławy. <a href="/kontakt/">Kontakt</a> · <a href="https://www.facebook.com/profile.php?id=61596575672213" rel="noopener" target="_blank">Facebook</a> · <a href="https://www.instagram.com/aviava.ilawa/" rel="noopener" target="_blank">Instagram</a></p>
 <p>Wykonanie: <a href="https://14-200.pl">14-200.pl</a>. Strona nie używa ciasteczek.</p>
 </div></footer>
 ${THEME_TAIL}

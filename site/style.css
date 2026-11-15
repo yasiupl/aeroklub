@@ -23,7 +23,10 @@
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--surface);color:var(--ink);font:16px/24px var(--sans)}
+body{margin:0;background:var(--surface);color:var(--ink);font:16px/24px var(--sans);min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
+/* Sticky footer: main fills the free height, so the footer stays at the bottom of short pages */
+body>main{flex:1 0 auto;width:100%}
+body>header,body>footer{flex:none}
 a{color:var(--link);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
 a:hover{text-decoration-thickness:2px}
 :focus-visible{outline:3px solid var(--town);outline-offset:2px}
@@ -57,7 +60,8 @@ section.footnotes,.backlinks{font-size:14px}
 section.footnotes h2,.backlinks h2{font-size:18px;line-height:24px}
 
 footer{border-top:4px solid var(--rim);background:var(--band);color:var(--lettering);font-size:13px;line-height:18px}
-footer .in{max-width:var(--wide);margin:0 auto;padding:24px 16px;display:grid;gap:8px}
+footer .in{max-width:var(--wide);margin:0 auto;padding:24px 16px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.foot-text{display:grid;gap:8px}
 footer a{color:inherit}
 footer p{margin:0}
 
@@ -111,11 +115,27 @@ footer p{margin:0}
 :root[data-theme="dark"] .theme .sun{display:inline}
 .bar nav{align-items:center;margin-left:auto}
 @media (max-width:760px){.bar .name{order:0}.theme{order:1;margin-left:auto}.bar nav{order:2;width:100%;margin-left:0;gap:0 20px}}
+/* Social media links (inline SVG, no external files) */
+.social{list-style:none;padding:0;margin:12px 0;display:flex;flex-wrap:wrap;gap:8px 24px}
+.social li{margin:0}
+.social a{display:inline-flex;align-items:center;gap:8px;font-weight:700}
+.social svg{flex:none}
+.social-icons{display:flex;gap:12px;align-items:center;flex:none;margin-left:auto}
+.social-icon{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;color:inherit;border:1px solid color-mix(in srgb,currentColor 45%,transparent)}
+.social-icon svg{width:18px;height:18px}
+.social-icon:hover{background:color-mix(in srgb,currentColor 14%,transparent)}
+/* News: Facebook Page Plugin loaded on click */
+.feed{max-width:500px;margin:16px 0}
+.btn-feed{font:700 16px/24px var(--sans);padding:10px 20px;border-radius:4px;border:2px solid var(--field);background:var(--field);color:#fff;cursor:pointer}
+.btn-feed:hover{background:color-mix(in srgb,var(--field) 86%,#000)}
+.feed-note{font-size:13px;line-height:18px;color:var(--muted);margin:8px 0 0}
+.fb-plugin{display:block;max-width:100%;border:0;overflow:hidden;border-radius:4px;background:#fff}
 /* Contact page */
 .mail-big{font:700 28px/36px var(--display);margin:16px 0 8px;word-break:break-word}
 .contact .card{display:flex;flex-direction:column}
 .contact .card .go{margin-top:auto;padding-top:12px;font-weight:700}
 .people.people-sm{grid-template-columns:repeat(2,minmax(0,12rem));gap:16px}
+#aktualnosci h1{font-size:40px;line-height:46px;margin:24px 0 8px}
 #kontakt h1{font-size:40px;line-height:46px;margin:24px 0 8px}
 /* Sign-up page: Google Form in an iframe */
 .form-wrap{max-width:46rem;margin:24px 0;border:1px solid var(--line);border-top:4px solid var(--field);border-radius:4px;background:#fff;overflow:hidden}

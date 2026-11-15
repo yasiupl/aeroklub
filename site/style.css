@@ -83,6 +83,12 @@ footer p{margin:0}
 .steps .card h3::before{content:counter(s) ". "}
 .note{border-left:4px solid var(--town);padding:8px 16px;margin:24px 0;background:var(--soft);max-width:var(--text)}
 .note p{margin:0}
+.people{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,18rem));gap:24px;margin:24px 0;padding:0;list-style:none}
+.person{margin:0}
+.person img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;border-radius:4px;border:1px solid var(--line);border-bottom:4px solid var(--rim);background:var(--soft)}
+.person h3{font:700 20px/26px var(--display);margin:16px 0 0}
+.person .role{font-size:13px;line-height:18px;color:var(--muted);margin:4px 0 0;text-transform:uppercase;letter-spacing:.08em}
+.person p{margin:8px 0 0}
 .mark{display:grid;grid-template-columns:minmax(0,12rem) minmax(0,1fr);gap:24px;align-items:start;margin:24px 0}
 .mark dl{margin:0;display:grid;gap:8px}
 .mark dt{font-weight:700}

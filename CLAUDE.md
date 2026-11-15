@@ -10,10 +10,9 @@ The wiki contains information only. It does not contain offers, plans, or opinio
 | --- | --- | --- |
 | `raw/` | Source files: articles, PDF files, scans, photos, notes from conversations. | The user. The agent does not change or delete these files. |
 | `wiki/` | Markdown pages. The agent writes and updates them. | The agent. |
-| `site/` | Files for the web site: the home page (`home.html`), the style, the fonts, the map script and static files. | The agent. |
-| `marka/` | Brand files of Aviava: logo, tokens, generator. The site takes its colours from `marka/tokens.json`. | The agent, with the approval of the user. |
+| `site/` | Files for the web site: the home page (`home.html`), the style, the fonts, the photos (`img/`), the map script and static files. | The agent. |
+| `marka/` | Brand files of the Aviava sign: brand book, tokens, logos, embroidery files, social media graphics, generator. Not part of the wiki. The site takes its colours and logos from it. | The generator in `marka/generator/`, with the approval of the user. |
 | `build.mjs` | Script that makes HTML pages in `dist/` from `wiki/`. | The agent. |
-| `marka/` | Brand files of the Aviava sign: brand book, tokens, logos, embroidery files, social media graphics, generator. Not part of the wiki and not built into the site. | The generator in `marka/generator/`. |
 
 ## Page types
 

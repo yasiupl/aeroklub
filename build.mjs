@@ -191,5 +191,6 @@ for (const f of ['aviava-naszywka-jasna.svg', 'aviava-naszywka-ciemna.svg', 'avi
 copy(path.join(MARKA, 'media-spolecznosciowe', 'facebook-tlo-jasna.png'), '/marka/aviava-tlo.png');
 copy(path.join(MARKA, 'svg', 'aviava-sygnet.svg'), '/favicon.svg');
 for (const f of fs.readdirSync(path.join(SITE, 'fonts'))) copy(path.join(SITE, 'fonts', f), `/fonts/${f}`);
+for (const f of fs.readdirSync(path.join(SITE, 'img'))) copy(path.join(SITE, 'img', f), `/img/${f}`);
 
 console.log(`Built the home page, ${pages.size} wiki pages and the map into dist/.`);

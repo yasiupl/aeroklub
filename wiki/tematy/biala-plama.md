@@ -9,7 +9,7 @@ sources: [ulc-wykaz-ladowisk-2026, dlapilota-olsztyn-dajtki, dlapilota-grudziadz
 
 Ewidencja lądowisk ULC wymienia w powiecie iławskim jedno lądowisko: przyszpitalne lądowisko dla śmigłowców w Iławie[^ulc]. W powiecie nie ma lądowiska dla samolotów ani szybowców w ewidencji[^ulc]. Określenie „lotnicza biała plama” o Iławie pojawiło się w komentarzu czytelnika pod artykułem Info Iława w 2023 r.[^pole]
 
-Mapa: [/mapa/](/mapa/).
+Mapa: [/wiki/mapa/](/wiki/mapa/).
 
 ## Odległości z Iławy
 

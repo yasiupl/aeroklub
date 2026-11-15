@@ -46,7 +46,7 @@ Aviava to znak grupy lotniczej z Iławy i powiatu iławskiego. Nazwa łączy „
 | Plik | Użycie |
 | --- | --- |
 | `aviava-naszywka-jasna.svg` | Wersja główna. Druk, ekran, materiały. |
-| `aviava-naszywka-ciemna.svg` | Wersja nocna. Ciemne tło, materiały wieczorne, odzież. |
+| `aviava-naszywka-ciemna.svg` | Wersja ciemna. Tylko kadra i specjalne okazje. |
 | `aviava-haft-jasna-inkstitch.svg`, `aviava-haft-ciemna-inkstitch.svg` | Haft, średnica 100 mm. Plik dla Ink/Stitch: warstwy według kolorów nici, w kolejności szycia. |
 | `aviava-sygnet.svg`, `aviava-sygnet-ciemny.svg` | Sam łabędź w kole. Awatar, favicon, przypinka. |
 | `aviava-flaga.svg` | Flaga 5:8 z falami z flagi Iławy i naszywką przy drzewcu. |
@@ -59,23 +59,20 @@ Wersja ciemna i wersja jasna mają ten sam układ elementów. Różnią się tyl
 
 ## Wersja jasna czy ciemna
 
-**Wersja jasna jest wersją podstawową.** Użyj jej, jeżeli nie ma powodu, aby użyć wersji ciemnej.
+**Wersja jasna jest wersją podstawową.** Użyj jej we wszystkich materiałach, jeżeli nie ma powodu, aby użyć wersji ciemnej.
 
 Użyj wersji jasnej:
-- na tle białym, jasnym i średnim (papier, beż, błękit, jasne zdjęcia dzienne),
-- w dokumentach, pismach, na stronie internetowej w trybie jasnym,
-- na zdjęciu profilowym i w tle profilu w mediach społecznościowych,
-- na naszywce standardowej i na odzieży w jasnych i średnich kolorach.
+- w dokumentach, pismach i na stronie internetowej,
+- na zdjęciu profilowym, w tle profilu i w ramkach w mediach społecznościowych,
+- na naszywce uczestników i na odzieży uczestników.
 
-Użyj wersji ciemnej:
-- na tle ciemnym (granat, czerń, ciemne zdjęcia, zdjęcia nocne),
-- na stronie internetowej i w aplikacjach w trybie ciemnym,
-- w materiałach o wydarzeniach wieczornych i nocnych (np. obserwacje nieba, loty o zmierzchu),
-- na odzieży czarnej i granatowej,
-- w wydaniach specjalnych, w których złoto ma znaczenie wyróżnienia (dyplomy, podziękowania, jubileusze).
+Wersja ciemna jest zarezerwowana. Użyj jej tylko:
+- dla kadry: naszywka kadry, odzież kadry,
+- na specjalne okazje: dyplomy, podziękowania, jubileusze, materiały uroczystości.
 
 Zasady:
-- Obrzeże znaku musi wyraźnie odcinać się od tła. Jeżeli obrzeże zlewa się z tłem, użyj drugiej wersji.
+- Obrzeże znaku musi wyraźnie odcinać się od tła. Jeżeli wersja jasna nie odcina się od tła, zmień tło. Nie zmieniaj wersji znaku z tego powodu.
+- Na stronie internetowej wersja jasna jest domyślna. Odwiedzający może włączyć wersję ciemną przełącznikiem. Strona nie włącza wersji ciemnej sama, także przy ciemnym motywie systemu.
 - W jednym materiale używaj jednej wersji. Wyjątek: zestawienie obu wersji, np. w księdze znaku.
 - Te same zasady dotyczą sygnetu, flagi, proporczyka i odznaki.
 - Wersja jasna i ciemna mają ten sam układ. Nie mieszaj kolorów obu wersji w jednym znaku.
@@ -93,7 +90,7 @@ Zasady:
 
 Zasady:
 - Zdjęcie profilowe i tło profilu mają tę samą wersję (domyślnie jasną).
-- Ramkę dobierz do zdjęcia: jasna do zdjęć dziennych, ciemna do zdjęć nocnych i ciemnych.
+- Używaj ramki jasnej. Ramka ciemna: tylko materiały kadry i specjalne okazje.
 - Nie umieszczaj ważnej części zdjęcia pod dolnym pasem i pod naszywką w ramce.
 - Na grafikach używaj elementów naszywki bez zmian: łabędź na tle jeziora i klucz mew w tym samym układzie i tej samej skali względem siebie.
 

@@ -4,5 +4,13 @@
   "installCommand": "npm install",
   "buildCommand": "node build.mjs",
   "outputDirectory": "dist",
-  "trailingSlash": true
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/tematy/:path*", "destination": "/wiki/tematy/:path*", "permanent": true },
+    { "source": "/podmioty/:path*", "destination": "/wiki/podmioty/:path*", "permanent": true },
+    { "source": "/zrodla/:path*", "destination": "/wiki/zrodla/:path*", "permanent": true },
+    { "source": "/mapa/:path*", "destination": "/wiki/mapa/:path*", "permanent": true },
+    { "source": "/log/", "destination": "/wiki/log/", "permanent": true },
+    { "source": "/otwarte-pytania/", "destination": "/wiki/otwarte-pytania/", "permanent": true }
+  ]
 }

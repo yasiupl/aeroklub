@@ -10,7 +10,7 @@ The wiki contains information only. It does not contain offers, plans, or opinio
 | --- | --- | --- |
 | `raw/` | Source files: articles, PDF files, scans, photos, notes from conversations. | The user. The agent does not change or delete these files. |
 | `wiki/` | Markdown pages. The agent writes and updates them. | The agent. |
-| `site/` | Files for the web site: the home page (`home.html`), the brand page (`znak.html`), the sign-up page (`zapisy.html`), the contact page (`kontakt.html`), the style, the fonts, the photos (`img/`), the map script and static files. | The agent. |
+| `site/` | Files for the web site: the home page (`home.html`), the brand page (`znak.html`), the sign-up page (`zapisy.html`), the contact page (`kontakt.html`), the news page (`aktualnosci.html`, `aktualnosci.js`), the style, the fonts, the photos (`img/`), the map script and static files. | The agent. |
 | `marka/` | Brand files of the Aviava sign: brand book, tokens, logos, embroidery files, social media graphics, generator. Not part of the wiki. The site takes its colours and logos from it. | The generator in `marka/generator/`, with the approval of the user. |
 | `build.mjs` | Script that makes HTML pages in `dist/` from `wiki/`. | The agent. |
 
@@ -97,6 +97,8 @@ Find and record in `otwarte-pytania.md`:
 - The brand page (`site/znak.html`, address `/znak/`) explains the sign. `{{paleta}}` is the colour table from `marka/tokens.json`.
 - Fonts: Brygada 1918 (headings) and Lato (text), files in `site/fonts/`, licence SIL OFL 1.1.
 - Each page has a list of pages that link to it ("Linkujące strony").
+- News page (`site/aktualnosci.html` and `site/aktualnosci.js`, address `/aktualnosci/`): the official Facebook Page Plugin (timeline) of https://www.facebook.com/profile.php?id=61596575672213, width up to 500 px. It loads only after a click on „Pokaż aktualności z Facebooka”: before the click the site sends no request to Facebook and sets no cookies. Do not load the Facebook SDK or any Facebook file before the click. A fediverse feed will replace this source later; the Facebook plugin stays as the fallback.
+- Social media: `SOCIAL` in `build.mjs` (Facebook, Instagram). Icons are inline SVG with the official shapes from simple-icons (CC0 1.0): no external library, no request, no cookies. Footer: icons only, on the right. Pages: `{{social}}` placeholder (icon and text).
 - Visitor statistics: self-hosted Plausible at plausible.yasiu.pl, site `aviava.14-200.pl`. `build.mjs` adds the snippet from the Plausible dashboard to every page (`PLAUSIBLE`). Plausible uses no cookies. Do not add other analytics or cookies.
 - The site has the meta tag `noindex`. Remove it from `build.mjs` when the wiki is public.
 - A link from a wiki page to the map is `/wiki/mapa/`.

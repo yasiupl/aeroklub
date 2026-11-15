@@ -12,8 +12,8 @@ const DIST = path.join(ROOT, 'dist');
 const MARKA = path.join(ROOT, 'marka');
 const SITE_URL = 'https://aviava.14-200.pl';
 const SITE_NAME = 'Aviava';
-const HOME_TITLE = 'Aviava – grupa lotnicza z Iławy';
-const HOME_DESC = 'Aviava to grupa lotnicza z Iławy i powiatu iławskiego. Zaczynamy od szybowców: teoria w Iławie, praktyka w szkole partnerskiej.';
+const HOME_TITLE = 'Aviava – grupa lotnicza z regionu Iławy';
+const HOME_DESC = 'Aviava to grupa lotnicza z regionu Iławy. Zaczynamy od szybowców: teoria w Iławie, praktyka w szkole partnerskiej.';
 const WIKI_NAME = 'Baza wiedzy Aviava';
 const WIKI_URL = '/wiki'; // URL prefix of the wiki
 // Visitor statistics: self-hosted Plausible at plausible.yasiu.pl (no cookies, no personal data).
@@ -141,7 +141,7 @@ ${head}</head>
 ${content}
 </main>
 <footer><div class="in">
-<p>Aviava – grupa lotnicza z Iławy i powiatu iławskiego. Kontakt: <a href="mailto:aviava@14-200.pl">aviava@14-200.pl</a> · <a href="/kontakt/">wszystkie sprawy</a></p>
+<p>Aviava – grupa lotnicza z regionu Iławy. Kontakt: <a href="mailto:aviava@14-200.pl">aviava@14-200.pl</a> · <a href="/kontakt/">wszystkie sprawy</a></p>
 ${wikiFooter}<p>Obrys jezior w znaku: „Mapa Jeziora Jeziorak”, autor Marcin n, Wikimedia Commons, licencja <a href="https://creativecommons.org/licenses/by-sa/2.5/">CC BY-SA 2.5</a>. Kroje pisma: Brygada 1918 i Lato, licencja SIL OFL 1.1.</p>
 <p>Wykonanie strony: <a href="https://14-200.pl">14-200.pl</a>. Kod strony: <a href="https://github.com/yasiupl/aeroklub">github.com/yasiupl/aeroklub</a>. Strona nie używa ciasteczek.</p>
 </div></footer>

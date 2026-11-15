@@ -116,7 +116,7 @@ function layout({ title, url, content, head = '', tail = '', home = false, page 
   const fullTitle = home ? HOME_TITLE : page ? `${title} – ${SITE_NAME}` : url === `${WIKI_URL}/` ? WIKI_NAME : `${title} – ${WIKI_NAME}`;
   const section = home || page || url === `${WIKI_URL}/mapa/` ? url : `${WIKI_URL}/`;
   const nav = NAV.map(([href, text]) => `<a href="${href}"${href === section ? ' aria-current="page"' : ''}>${text}</a>`).join(' ');
-  const wikiFooter = home || page ? '' : `<p>Baza wiedzy: każda informacja ma przypis do źródła. <a href="${WIKI_URL}/otwarte-pytania/">Otwarte pytania</a> · <a href="${WIKI_URL}/log/">Zmiany</a></p>\n`;
+  const wikiFooter = home || page ? '' : `<p>Baza wiedzy: <a href="${WIKI_URL}/otwarte-pytania/">Otwarte pytania</a> · <a href="${WIKI_URL}/log/">Zmiany</a></p>\n`;
   return `<!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -214,10 +214,11 @@ out('/znak/', layout({
 const MAP_URL = `${WIKI_URL}/mapa/`;
 const mapContent = `<p class="crumb"><a href="${WIKI_URL}/">Baza wiedzy</a></p>
 <h1>Mapa: aerokluby, lądowiska i dojazdy z Iławy</h1>
-<p>Czerwony obszar: powiat iławski bez lądowiska dla samolotów i szybowców (<a href="${WIKI_URL}/tematy/biala-plama/">biała plama</a>). Współrzędne lotnisk pochodzą ze stron źródeł. Drogę i czas jazdy liczy serwer OSRM na podstawie danych OpenStreetMap, bez korków.</p>
+<p>Czerwony obszar: powiat iławski bez lądowiska dla samolotów i szybowców (<a href="${WIKI_URL}/tematy/biala-plama/">biała plama</a>).</p>
 <div id="mapa" class="map" role="region" aria-label="Mapa"></div>
 <h2>Dojazdy z Iławy</h2>
-<div class="table-wrap"><table><thead><tr><th>Aeroklub</th><th>Lotnisko</th><th>Linia prosta</th><th>Droga</th><th>Czas jazdy</th></tr></thead><tbody id="dojazdy"></tbody></table></div>`;
+<div class="table-wrap"><table><thead><tr><th>Aeroklub</th><th>Lotnisko</th><th>Linia prosta</th><th>Droga</th><th>Czas jazdy</th></tr></thead><tbody id="dojazdy"></tbody></table></div>
+<p class="meta">Współrzędne lotnisk pochodzą ze stron źródeł. Drogę i czas jazdy liczy serwer OSRM na podstawie danych OpenStreetMap, bez korków.</p>`;
 out(MAP_URL, layout({
   title: 'Mapa',
   url: MAP_URL,

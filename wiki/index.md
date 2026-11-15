@@ -5,7 +5,7 @@ updated: 2026-11-15
 
 # Lotnictwo w Iławie i powiecie iławskim
 
-Baza wiedzy o lotnictwie w Iławie, powiecie iławskim i regionie Jezioraka. Każda informacja ma przypis do strony źródła. Zasady wiki: plik `CLAUDE.md` w repozytorium.
+Baza wiedzy o lotnictwie w Iławie, powiecie iławskim i regionie Jezioraka.
 
 - [[biala-plama]] – w powiecie iławskim nie ma lądowiska dla samolotów ani szybowców.
 - [[otwarte-pytania]] – luki w wiedzy i informacje do sprawdzenia.

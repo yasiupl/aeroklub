@@ -12,6 +12,7 @@ The wiki contains information only. It does not contain offers, plans, or opinio
 | `wiki/` | Markdown pages. The agent writes and updates them. | The agent. |
 | `site/` | Files for the web site: the map script and static files. | The agent. |
 | `build.mjs` | Script that makes HTML pages in `dist/` from `wiki/`. | The agent. |
+| `marka/` | Brand files of the Aviava sign: brand book, tokens, logos, embroidery files, social media graphics, generator. Not part of the wiki and not built into the site. | The generator in `marka/generator/`. |
 
 ## Page types
 

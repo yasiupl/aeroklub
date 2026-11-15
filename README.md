@@ -17,6 +17,7 @@ Wiki zawiera tylko informacje. Każda informacja ma przypis do strony źródła.
 | `wiki/podmioty/` | Aerokluby, lądowiska, wydarzenia. |
 | `wiki/zrodla/` | Jedna strona na jedno źródło. |
 | `site/` | Mapa, arkusz stylów i ikona. |
+| `marka/` | Znak Aviava: księga znaku (`README.md`), tokeny kolorów, logotypy SVG i PNG, wersja do haftu, grafiki do mediów społecznościowych, generator. |
 | `build.mjs` | Generator strony WWW: `wiki/` → `dist/`. |
 
 ## Dodanie informacji

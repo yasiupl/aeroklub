@@ -186,6 +186,11 @@ const swatchRow = (theme, name) => `<div class="palette"><p class="pal-name">${n
 const paleta = swatchRow('light', 'Wersja jasna') + swatchRow('dark', 'Wersja ciemna')
   + `<div class="palette"><p class="pal-name">Fale (flaga, proporczyk)</p><ul>${[['flag-blue', 'Niebieski'], ['flag-white', 'Biały']].map(([k, label]) =>
     `<li><span class="chip" style="background:${tok[k].light}"></span><b>${label}</b><code>${tok[k].light}</code></li>`).join('')}</ul></div>`;
+out('/zapisy/', layout({
+  title: 'Zapisy', url: '/zapisy/', page: true,
+  description: 'Zapisz się do Aviavy: szybowce w Iławie, zajęcia teoretyczne, spotkania i wyjazdy na lotnisko.',
+  content: fs.readFileSync(path.join(SITE, 'zapisy.html'), 'utf8'),
+}));
 out('/znak/', layout({
   title: 'Znak', url: '/znak/', page: true,
   description: 'Znak Aviava: symbolika, wersja jasna i ciemna, kolory, typografia i pliki do pobrania.',

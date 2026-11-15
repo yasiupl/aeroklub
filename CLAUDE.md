@@ -10,7 +10,7 @@ The wiki contains information only. It does not contain offers, plans, or opinio
 | --- | --- | --- |
 | `raw/` | Source files: articles, PDF files, scans, photos, notes from conversations. | The user. The agent does not change or delete these files. |
 | `wiki/` | Markdown pages. The agent writes and updates them. | The agent. |
-| `site/` | Files for the web site: the home page (`home.html`), the brand page (`znak.html`), the style, the fonts, the photos (`img/`), the map script and static files. | The agent. |
+| `site/` | Files for the web site: the home page (`home.html`), the brand page (`znak.html`), the sign-up page (`zapisy.html`), the style, the fonts, the photos (`img/`), the map script and static files. | The agent. |
 | `marka/` | Brand files of the Aviava sign: brand book, tokens, logos, embroidery files, social media graphics, generator. Not part of the wiki. The site takes its colours and logos from it. | The generator in `marka/generator/`, with the approval of the user. |
 | `build.mjs` | Script that makes HTML pages in `dist/` from `wiki/`. | The agent. |
 
@@ -92,6 +92,7 @@ Find and record in `otwarte-pytania.md`:
 - The home page is at `/`. The wiki is at `/wiki/`. The map is at `/wiki/mapa/`. `vercel.json` redirects the old wiki addresses (without `/wiki/`).
 - Colours: `build.mjs` writes the brand tokens from `marka/tokens.json` as CSS variables. Theme `light` is the default for all visitors. Theme `dark` is on only when the visitor turns it on with the switch in the header (`data-theme="dark"`, saved in `localStorage`). Do not use `prefers-color-scheme`: the dark version of the brand is reserved for the staff and special occasions. Do not write brand colour values in `site/style.css`.
 - Logos in two versions: use the `{{logo:light-file:dark-file:attributes}}` placeholder in `site/*.html`. CSS shows the version that matches the theme.
+- The sign-up page (`site/zapisy.html`, address `/zapisy/`) shows the Google Form in an iframe. `/zapisz` and `/formularz` redirect to it.
 - The brand page (`site/znak.html`, address `/znak/`) explains the sign. `{{paleta}}` is the colour table from `marka/tokens.json`.
 - Fonts: Brygada 1918 (headings) and Lato (text), files in `site/fonts/`, licence SIL OFL 1.1.
 - Each page has a list of pages that link to it ("Linkujące strony").

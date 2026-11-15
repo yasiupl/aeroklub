@@ -1,6 +1,6 @@
-# Lotnictwo – Iława i powiat iławski (wiki)
+# Aviava – grupa lotnicza z Iławy
 
-Baza wiedzy o lotnictwie w Iławie, powiecie iławskim i regionie Jezioraka. Adres: [aeroklub.14-200.pl](https://aeroklub.14-200.pl).
+Strona grupy Aviava: [aviava.14-200.pl](https://aviava.14-200.pl). Strona główna opisuje grupę. Pod adresem `/wiki/` jest baza wiedzy o lotnictwie w Iławie, powiecie iławskim i regionie Jezioraka.
 
 Wiki zawiera tylko informacje. Każda informacja ma przypis do strony źródła.
 
@@ -16,7 +16,8 @@ Wiki zawiera tylko informacje. Każda informacja ma przypis do strony źródła.
 | `wiki/tematy/` | Tematy: historia, prawo, problemy. |
 | `wiki/podmioty/` | Aerokluby, lądowiska, wydarzenia. |
 | `wiki/zrodla/` | Jedna strona na jedno źródło. |
-| `site/` | Mapa, arkusz stylów i ikona. |
+| `site/home.html` | Strona główna: misja, pierwsza edycja, znak, kontakt. |
+| `site/` | Arkusz stylów, fonty (Brygada 1918, Lato), mapa. |
 | `marka/` | Znak Aviava: księga znaku (`README.md`), tokeny kolorów, logotypy SVG i PNG, wersja do haftu, grafiki do mediów społecznościowych, generator. |
 | `build.mjs` | Generator strony WWW: `wiki/` → `dist/`. |
 

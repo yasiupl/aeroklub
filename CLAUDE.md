@@ -1,8 +1,8 @@
 # Wiki schema
 
-This repository is a wiki about aviation in Iława and the Iława county (powiat iławski), Poland. The wiki follows the "LLM wiki" pattern: an agent reads raw sources and keeps a set of linked Markdown pages up to date.
+This repository is the web site of Aviava, an aviation group from Iława (address: aviava.14-200.pl). The site has a home page about the group and a wiki about aviation in Iława and the Iława county (powiat iławski), Poland. The wiki follows the "LLM wiki" pattern: an agent reads raw sources and keeps a set of linked Markdown pages up to date.
 
-The wiki contains information only. It does not contain offers, plans, or opinions of any organization.
+The wiki contains information only. It does not contain offers, plans, or opinions of any organization. The home page (`site/home.html`) is the only page about the group: its mission, plans and contact. The rules for the text below apply to the wiki, not to the home page.
 
 ## Layers
 
@@ -10,7 +10,8 @@ The wiki contains information only. It does not contain offers, plans, or opinio
 | --- | --- | --- |
 | `raw/` | Source files: articles, PDF files, scans, photos, notes from conversations. | The user. The agent does not change or delete these files. |
 | `wiki/` | Markdown pages. The agent writes and updates them. | The agent. |
-| `site/` | Files for the web site: the map script and static files. | The agent. |
+| `site/` | Files for the web site: the home page (`home.html`), the style, the fonts, the map script and static files. | The agent. |
+| `marka/` | Brand files of Aviava: logo, tokens, generator. The site takes its colours from `marka/tokens.json`. | The agent, with the approval of the user. |
 | `build.mjs` | Script that makes HTML pages in `dist/` from `wiki/`. | The agent. |
 | `marka/` | Brand files of the Aviava sign: brand book, tokens, logos, embroidery files, social media graphics, generator. Not part of the wiki and not built into the site. | The generator in `marka/generator/`. |
 
@@ -89,6 +90,10 @@ Find and record in `otwarte-pytania.md`:
 ## Web site
 
 - `node build.mjs` makes the site in `dist/`. The Vercel project runs this command.
+- The home page is at `/`. The wiki is at `/wiki/`. The map is at `/wiki/mapa/`. `vercel.json` redirects the old wiki addresses (without `/wiki/`).
+- Colours: `build.mjs` writes the brand tokens from `marka/tokens.json` as CSS variables (theme `light` by default, theme `dark` for the dark system setting). Do not write brand colour values in `site/style.css`.
+- Fonts: Brygada 1918 (headings) and Lato (text), files in `site/fonts/`, licence SIL OFL 1.1.
 - Each page has a list of pages that link to it ("Linkujące strony").
 - The site has the meta tag `noindex`. Remove it from `build.mjs` when the wiki is public.
+- A link from a wiki page to the map is `/wiki/mapa/`.
 - The map (`site/mapa.js`) uses Leaflet, OpenStreetMap and the public OSRM server. Coordinates in the map must have a source page.

@@ -6,6 +6,7 @@
   "outputDirectory": "dist",
   "trailingSlash": true,
   "redirects": [
+    { "source": "/kontakty", "destination": "/kontakt/", "permanent": false },
     { "source": "/zapisz", "destination": "/zapisy/", "permanent": false },
     { "source": "/formularz", "destination": "/zapisy/", "permanent": false },
     { "source": "/tematy/:path*", "destination": "/wiki/tematy/:path*", "permanent": true },

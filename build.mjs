@@ -101,7 +101,7 @@ const NAV = [
   ['/znak/', 'Znak'],
   [`${WIKI_URL}/`, 'Baza wiedzy'],
   [`${WIKI_URL}/mapa/`, 'Mapa'],
-  ['/#kontakt', 'Kontakt'],
+  ['/kontakt/', 'Kontakt'],
 ];
 
 function layout({ title, url, content, head = '', tail = '', home = false, page = false, description = '' }) {
@@ -132,7 +132,7 @@ ${head}</head>
 ${content}
 </main>
 <footer><div class="in">
-<p>Aviava – grupa lotnicza z Iławy i powiatu iławskiego. Kontakt: <a href="mailto:aviava@14-200.pl">aviava@14-200.pl</a></p>
+<p>Aviava – grupa lotnicza z Iławy i powiatu iławskiego. Kontakt: <a href="mailto:aviava@14-200.pl">aviava@14-200.pl</a> · <a href="/kontakt/">wszystkie sprawy</a></p>
 ${wikiFooter}<p>Obrys jezior w znaku: „Mapa Jeziora Jeziorak”, autor Marcin n, Wikimedia Commons, licencja <a href="https://creativecommons.org/licenses/by-sa/2.5/">CC BY-SA 2.5</a>. Kroje pisma: Brygada 1918 i Lato, licencja SIL OFL 1.1.</p>
 <p>Kod strony: <a href="https://github.com/yasiupl/aeroklub">github.com/yasiupl/aeroklub</a>. Strona nie używa ciasteczek.</p>
 </div></footer>
@@ -186,6 +186,11 @@ const swatchRow = (theme, name) => `<div class="palette"><p class="pal-name">${n
 const paleta = swatchRow('light', 'Wersja jasna') + swatchRow('dark', 'Wersja ciemna')
   + `<div class="palette"><p class="pal-name">Fale (flaga, proporczyk)</p><ul>${[['flag-blue', 'Niebieski'], ['flag-white', 'Biały']].map(([k, label]) =>
     `<li><span class="chip" style="background:${tok[k].light}"></span><b>${label}</b><code>${tok[k].light}</code></li>`).join('')}</ul></div>`;
+out('/kontakt/', layout({
+  title: 'Kontakt', url: '/kontakt/', page: true,
+  description: 'Kontakt z Aviavą: aviava@14-200.pl. Zapisy, współpraca, media.',
+  content: fs.readFileSync(path.join(SITE, 'kontakt.html'), 'utf8'),
+}));
 out('/zapisy/', layout({
   title: 'Zapisy', url: '/zapisy/', page: true,
   description: 'Zapisz się do Aviavy: szybowce w Iławie, zajęcia teoretyczne, spotkania i wyjazdy na lotnisko.',

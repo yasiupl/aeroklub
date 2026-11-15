@@ -1,6 +1,6 @@
 ---
 title: "Otwarte pytania"
-updated: 2026-10-28
+updated: 2026-11-15
 ---
 
 # Otwarte pytania
@@ -9,19 +9,13 @@ Luki w wiedzy, informacje do sprawdzenia i konflikty między źródłami.
 
 ## Brak źródeł
 
-- Lotnictwo w Iławie w latach 1945–2015: modelarnie, koła szybowcowe, lotnictwo rolnicze, lotnicy z Iławy.
-- Lotnisko w Ostródzie (1912–1913). Źródło ostrodanews.pl było niedostępne w dniu odczytu.
-- Posterunek obserwacji przestrzeni powietrznej koło Iławy (II wojna światowa). Źródło straznicyczasu.pl było niedostępne w dniu odczytu.
-- Historia Aeroklubu Elbląskiego. Strona aeroklubu była niedostępna w dniu odczytu.
-- Aeroklub Gdański: współrzędne lotniska Pruszcz Gdański (nr ewidencyjny 199).
-- Pomorska Szkoła Szybowcowa: lotnisko macierzyste, strona, aktualność propozycji z 2023 r.
-- Dawne miejsca startów koło Lubawy i Zalewa (np. lotnictwo rolnicze).
-- Pierwsza edycja fiesty balonowej: rok.
+- Lotnictwo w Iławie w latach 1945–2015: modelarnie, koła szybowcowe, lotnicy z Iławy. Częściowo uzupełniono agrolotnictwo: [[lotnictwo-w-ilawie-po-1945]], [[infoilawa-an2-rudzienice-2025]].
+- Dawne miejsca startów koło Lubawy i Zalewa (np. lotnictwo rolnicze). Relacja o lądowisku w Redakach i o An-2 w Łęgowie (gmina Kisielice) nie rozstrzyga tych dwóch miejscowości.
+- Dokładniejsze położenie fundamentu [[flugwache-al19-ilawa]] w lesie na granicy Iławy oraz lata działania posterunku. Post na forum Strażnicy Czasu z 30 maja 2018 r. tego nie podaje.
 
 ## Do sprawdzenia (stan może się zmienić)
 
-- Status lądowiska Stary Kamień. Ostatnia adnotacja: 26 lipca 2022 r.
-- Oferta szkolenia szybowcowego w Aeroklubie Warmińsko-Mazurskim. Ostatnie źródło: ogłoszenie z 2015 r.
+- Status lądowiska [[ladowisko-stary-kamien]]. Strona dlapilota.pl przy odczycie 15 listopada 2026 r. nadal podaje adnotację z 26 lipca 2022 r. (koniec dzierżawy, możliwe wyłączenie). Wykaz ULC z 16 czerwca 2026 r. nadal nie zawiera wpisu o nazwie Prabuty ani Stary Kamień. Stan użytkowania wymaga potwierdzenia u zarządzającego.
 
 ## Konflikty między źródłami
 

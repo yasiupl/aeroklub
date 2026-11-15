@@ -97,7 +97,7 @@ Find and record in `otwarte-pytania.md`:
 - The brand page (`site/znak.html`, address `/znak/`) explains the sign. `{{paleta}}` is the colour table from `marka/tokens.json`.
 - Fonts: Brygada 1918 (headings) and Lato (text), files in `site/fonts/`, licence SIL OFL 1.1.
 - Each page has a list of pages that link to it ("Linkujące strony").
-- Visitor statistics: self-hosted Plausible at plausible.yasiu.pl, site `aviava.14-200.pl`. `build.mjs` adds the script to every page (`PLAUSIBLE_DOMAIN`, `PLAUSIBLE_SCRIPT`). Plausible uses no cookies. Do not add other analytics or cookies.
+- Visitor statistics: self-hosted Plausible at plausible.yasiu.pl, site `aviava.14-200.pl`. `build.mjs` adds the snippet from the Plausible dashboard to every page (`PLAUSIBLE`). Plausible uses no cookies. Do not add other analytics or cookies.
 - The site has the meta tag `noindex`. Remove it from `build.mjs` when the wiki is public.
 - A link from a wiki page to the map is `/wiki/mapa/`.
 - The map (`site/mapa.js`) uses Leaflet, OpenStreetMap and the public OSRM server. Coordinates in the map must have a source page.

@@ -116,7 +116,6 @@ function layout({ title, url, content, head = '', tail = '', home = false, page 
   const fullTitle = home ? HOME_TITLE : page ? `${title} – ${SITE_NAME}` : url === `${WIKI_URL}/` ? WIKI_NAME : `${title} – ${WIKI_NAME}`;
   const section = home || page || url === `${WIKI_URL}/mapa/` ? url : `${WIKI_URL}/`;
   const nav = NAV.map(([href, text]) => `<a href="${href}"${href === section ? ' aria-current="page"' : ''}>${text}</a>`).join(' ');
-  const wikiFooter = home || page ? '' : `<p>Baza wiedzy: <a href="${WIKI_URL}/otwarte-pytania/">Otwarte pytania</a> · <a href="${WIKI_URL}/log/">Zmiany</a></p>\n`;
   return `<!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -142,7 +141,7 @@ ${content}
 </main>
 <footer><div class="in">
 <p>Aviava – grupa lotnicza z regionu Iławy. <a href="/kontakt/">Kontakt</a></p>
-${wikiFooter}<p>Wykonanie: <a href="https://14-200.pl">14-200.pl</a>. Strona nie używa ciasteczek.</p>
+<p>Wykonanie: <a href="https://14-200.pl">14-200.pl</a>. Strona nie używa ciasteczek.</p>
 </div></footer>
 ${THEME_TAIL}
 ${tail}</body>

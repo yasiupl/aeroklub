@@ -142,8 +142,7 @@ ${content}
 </main>
 <footer><div class="in">
 <p>Aviava – grupa lotnicza z regionu Iławy. <a href="/kontakt/">Kontakt</a></p>
-${wikiFooter}<p>Obrys jezior w znaku: „Mapa Jeziora Jeziorak”, autor Marcin n, Wikimedia Commons, licencja <a href="https://creativecommons.org/licenses/by-sa/2.5/">CC BY-SA 2.5</a>. Kroje pisma: Brygada 1918 i Lato, licencja SIL OFL 1.1.</p>
-<p>Wykonanie: <a href="https://14-200.pl">14-200.pl</a>. Strona nie używa ciasteczek.</p>
+${wikiFooter}<p>Wykonanie: <a href="https://14-200.pl">14-200.pl</a>. Strona nie używa ciasteczek.</p>
 </div></footer>
 ${THEME_TAIL}
 ${tail}</body>

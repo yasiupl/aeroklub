@@ -143,7 +143,7 @@ ${content}
 <footer><div class="in">
 <p>Aviava – grupa lotnicza z Iławy i powiatu iławskiego. Kontakt: <a href="mailto:aviava@14-200.pl">aviava@14-200.pl</a> · <a href="/kontakt/">wszystkie sprawy</a></p>
 ${wikiFooter}<p>Obrys jezior w znaku: „Mapa Jeziora Jeziorak”, autor Marcin n, Wikimedia Commons, licencja <a href="https://creativecommons.org/licenses/by-sa/2.5/">CC BY-SA 2.5</a>. Kroje pisma: Brygada 1918 i Lato, licencja SIL OFL 1.1.</p>
-<p>Kod strony: <a href="https://github.com/yasiupl/aeroklub">github.com/yasiupl/aeroklub</a>. Strona nie używa ciasteczek.</p>
+<p>Wykonanie strony: <a href="https://14-200.pl">14-200.pl</a>. Kod strony: <a href="https://github.com/yasiupl/aeroklub">github.com/yasiupl/aeroklub</a>. Strona nie używa ciasteczek.</p>
 </div></footer>
 ${THEME_TAIL}
 ${tail}</body>

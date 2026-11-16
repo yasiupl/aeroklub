@@ -1,12 +1,13 @@
 ---
 title: "Rejestr zmian"
-updated: 2026-11-15
+updated: 2026-11-16
 ---
 
 # Rejestr zmian
 
 Nowe wpisy na górze. Format: data – operacja – opis.
 
+- 2026-11-16 – ingest – Przepisy o licencji SPL (część SFCL, rozporządzenie 2018/1976) i o orzeczeniach lekarskich (część MED, rozporządzenie 1178/2011), cenniki Aeroklubu Warmińsko-Mazurskiego na 2026 r., dane szybowca SZD-50-3 Puchacz, artykuł Wikipedii o szybowcu. Nowe źródła: `eurlex-part-sfcl`, `eurlex-part-med`, `awm-cennik-szybowce-2026`, `awm-cennik-statutowe-2026`, `bga-puchacz-data-sheet`, `easa-tcds-puchacz`, `wikipedia-szybowiec`. Nowa strona: `szkolenie-szybowcowe` (pytania i odpowiedzi). Uzupełniono `aeroklub-warminsko-mazurski`.
 - 2026-11-15 – ingest – Kopia wątku Strażnicy Czasu o Flugwache AL 19 w Internet Archive (zrzut 17.09.2019). Nowe strony: `straznicyczasu-flugwache-al19`, `flugwache-al19-ilawa`. Uzupełniono `deutsch-eylau-lotnictwo`.
 - 2026-11-15 – ingest – Info Iława (12.01.2025): zapowiedź spotkania o lotnisku polowym w Iławie (17.01.2025) i grafika lotu Rumpler Taube z 30.08.1914. Źródło: `infoilawa-tajemnice-lotniska-polowego-2025`. Nowa strona: `lotnisko-polowe-ilawa`.
 - 2026-11-15 – struktura – Usunięto z otwartych pytań punkt o aktualności propozycji Pomorskiej Szkoły Szybowcowej z 2023 r.

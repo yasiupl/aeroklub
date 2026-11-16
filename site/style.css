@@ -74,6 +74,12 @@ footer p{margin:0}
 .hero .lead{font-size:20px;line-height:30px;margin:0 0 24px;max-width:34rem}
 .hero .patch{display:block;width:100%;max-width:22rem;margin:0 auto}
 .hero .patch img{display:block;width:100%;height:auto}
+/* Home hero: text and patch on the field colour, the photo of Iława from a glider below them.
+   Nothing covers the lake: the sky at the top of the photo fades into the field colour under the text. */
+.hero-photo .hero-in{position:relative;z-index:1;padding-bottom:0}
+.hero-pic{display:block;position:relative;margin-top:-96px}
+.hero-pic img{display:block;width:100%;height:auto;max-height:760px;object-fit:cover;object-position:50% 100%}
+.hero-pic::before{content:"";position:absolute;inset:0 0 auto 0;height:34%;background:linear-gradient(180deg,var(--field) 0%,color-mix(in srgb,var(--field) 60%,transparent) 45%,transparent 100%);pointer-events:none}
 .btns{display:flex;flex-wrap:wrap;gap:16px}
 .btn{display:inline-block;padding:10px 20px;border-radius:4px;font-weight:700;text-decoration:none;border:2px solid var(--lettering);color:var(--lettering)}
 .btn:hover{background:color-mix(in srgb,var(--lettering) 14%,transparent)}
@@ -170,6 +176,9 @@ footer p{margin:0}
 @media (max-width:760px){
   .hero-in{grid-template-columns:1fr;gap:24px;padding:32px 16px}
   .hero .patch{max-width:16rem;order:-1}
+  .hero-photo .hero-in{padding-bottom:24px}
+  .hero-pic{margin-top:-24px}
+  .hero-pic::before{height:22%}
   .hero h1{font-size:44px;line-height:48px}
   .mark{grid-template-columns:1fr}
   .mark img{max-width:10rem}

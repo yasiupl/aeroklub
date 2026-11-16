@@ -95,7 +95,8 @@ footer p{margin:0}
 .btn.main:hover{background:color-mix(in srgb,var(--town) 86%,#fff)}
 .sec{max-width:var(--wide);margin:0 auto;padding:24px 16px}
 .sec>h2{font-size:32px;line-height:38px;border:0;margin:24px 0 8px}
-.sec>p,.sec>ul{max-width:var(--text)}
+/* One content column: every block in a section (text, cards, lists, tables) has the width of the text column */
+.sec>*{max-width:var(--text)}
 .sec .intro{font-size:18px;line-height:28px}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:16px;margin:24px 0;padding:0;list-style:none}
 .card{margin:0;padding:16px;border:1px solid var(--line);border-top:4px solid var(--field);border-radius:4px;background:var(--soft)}

@@ -65,6 +65,34 @@ def cover(p, name):
     save("facebook-tlo-%s" % name, "".join(o), W, H)
 
 
+# ---------------------------------------------------------------- Facebook cover with the photo, 1640 x 924
+PHOTO = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "zdjecia", "ilawa-z-szybowca.jpg")
+
+
+def cover_photo(p, name):
+    """Same layout as the home page hero: the whole photo of Iława from a glider on the left (full height),
+    a short gradient joins its right edge to the field colour, the patch on the photo east of Jeziorak
+    (66 % of the photo width), the name on the right. Everything important is in the band that Facebook
+    shows on desktop (y 150..774) and on phones (x 180..1460); the profile picture covers the bottom-left corner."""
+    import base64
+    W, H = 1640, 924
+    pw = H * 4 / 3                                   # whole photo, scaled to the cover height
+    img = base64.b64encode(open(PHOTO, "rb").read()).decode()
+    o = ['<defs><linearGradient id="fade" x1="0" x2="1" y1="0" y2="0">'
+         '<stop offset="0.78" stop-color="%s" stop-opacity="0"/><stop offset="0.89" stop-color="%s" stop-opacity="0.45"/>'
+         '<stop offset="1" stop-color="%s"/></linearGradient></defs>' % (p["field"], p["field"], p["field"])]
+    o.append('<rect width="%d" height="%d" fill="%s"/>' % (W, H, p["field"]))
+    o.append('<image x="0" y="0" width="%s" height="%d" preserveAspectRatio="xMidYMid meet" href="data:image/jpeg;base64,%s"/>' % (L.r1(pw), H, img))
+    o.append('<rect x="0" y="0" width="%s" height="%d" fill="url(#fade)"/>' % (L.r1(pw), H))
+    o.append(patch(p, 0.66 * pw, 462, 470))
+    x = 1090
+    o.append(text("AVIAVA", x, 450, 84, p["text"], track=8, anchor="start"))
+    o.append(text("GRUPA LOTNICZA", x + 2, 510, 30, p["text"], track=6, face=L.FS, anchor="start"))
+    o.append('<rect x="%d" y="535" width="300" height="4" fill="%s"/>' % (x + 2, p["rim"]))
+    o.append(text("IŁAWA", x + 2, 585, 30, p["text"], track=6, face=L.FS, anchor="start"))
+    save("facebook-tlo-zdjecie-%s" % name, "".join(o), W, H)
+
+
 # ---------------------------------------------------------------- story / tło 1080 x 1920
 def story(p, name):
     W, H = 1080, 1920
@@ -95,6 +123,7 @@ if __name__ == "__main__":
     profile()
     for name, p in [("jasna", P["szybowcowa"]), ("ciemna", P["nocna"])]:
         cover(p, name)
+        cover_photo(p, name)
         story(p, name)
         frame(p, name, 1080, 1350)
         frame(p, name, 1080, 1080)

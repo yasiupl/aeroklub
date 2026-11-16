@@ -84,6 +84,7 @@ Zasady:
 | `profilowe-naszywka-jasna.png` (ciemna) | 1080 × 1080 | Zdjęcie profilowe na Facebooku i Instagramie. Serwis przycina je do koła. |
 | `profilowe-sygnet-jasna.png` (ciemna) | 1080 × 1080 | Zdjęcie profilowe, gdy jest bardzo małe (sam łabędź). |
 | `facebook-tlo-jasna.png` (ciemna) | 1640 × 924 | Zdjęcie w tle strony na Facebooku: napis AVIAVA i IŁAWA oraz pole naszywki (jezioro, łabędź, klucz mew, gwiazdy) dokładnie tak jak w naszywce. Ważne elementy są w środkowym pasie 1640 × 624 i w środkowych 1280 px. Lewy dolny róg zasłania zdjęcie profilowe. |
+| `facebook-tlo-zdjecie-jasna.png` (ciemna) | 1640 × 924 | Zdjęcie w tle strony na Facebooku ze zdjęciem Iławy z szybowca (`zdjecia/ilawa-z-szybowca.jpg`), w układzie hero strony: całe zdjęcie po lewej, naszywka na zdjęciu na wschód od Jezioraka, napisy AVIAVA, GRUPA LOTNICZA, IŁAWA po prawej. Ważne elementy są w środkowym pasie 1640 × 624 i w środkowych 1280 px. |
 | `instagram-relacja-tlo-jasna.png` (ciemna) | 1080 × 1920 | Tło relacji na Instagramie i Facebooku, okładki wyróżnionych relacji. |
 | `ramka-jasna-1080x1350.png` (ciemna) | 1080 × 1350 | Ramka na zdjęcie w poście pionowym (4:5). Środek jest przezroczysty: połóż ramkę na zdjęciu. |
 | `ramka-jasna-1080x1080.png` (ciemna) | 1080 × 1080 | Ramka na zdjęcie w poście kwadratowym. |

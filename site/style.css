@@ -183,11 +183,11 @@ footer p{margin:0}
 @media (max-width:760px){
   .hero-in{grid-template-columns:1fr;gap:24px;padding:32px 16px}
   .hero .patch{max-width:16rem;order:-1}
-  .hero-photo .hero-in{min-height:0;padding-top:calc(32px + 12rem + 24px)}
+  .hero-photo .hero-in{min-height:0;padding-top:calc(75vw + 8px)}
   .hero-media{left:0;right:0;width:100%;height:auto}
   .hero-pic,.hero-pic img{height:auto}
-  .hero-media::after{background:linear-gradient(180deg,transparent 0%,transparent 35%,color-mix(in srgb,var(--field) 60%,transparent) 70%,var(--field) 100%)}
-  .hero-photo .patch{width:12rem;left:50%;top:calc(32px + 6rem)}
+  .hero-media::after{background:linear-gradient(180deg,transparent 0%,transparent 82%,var(--field) 100%)}
+  .hero-photo .patch{width:min(12rem,52vw);left:50%;top:37.5vw}
   .hero h1{font-size:44px;line-height:48px}
   .mark{grid-template-columns:1fr}
   .mark img{max-width:10rem}

@@ -75,18 +75,19 @@ footer p{margin:0}
 .hero .patch{display:block;width:100%;max-width:22rem;margin:0 auto}
 .hero .patch img{display:block;width:100%;height:auto}
 /* Home hero with the photo of Iława from a glider under the patch.
-   Desktop: the whole photo, scaled to the hero height, on the right; a short gradient joins its left edge to the field colour.
+   Desktop: the whole photo, scaled to the hero height, on the right; a short gradient joins its right edge to the field colour.
    The hero is at least 3/8 of the width high, so the photo always reaches the middle of the page.
-   The patch sits on the photo east of Jeziorak (78% of the photo width), vertically in the middle; it never leaves the screen.
+   The photo is on the left, the text on the right half. The patch sits on the photo east of Jeziorak (66% of the photo width), vertically in the middle; it never leaves the screen.
    Mobile: the whole photo at the top of the page with the patch on it; it fades down into the field colour to the heading AVIAVA. */
 .hero-photo{position:relative;overflow:hidden;isolation:isolate}
 .hero-photo .hero-in{min-height:37.5vw;box-sizing:border-box}
-.hero-media{position:absolute;top:0;right:0;height:100%;aspect-ratio:4/3;z-index:0}
+.hero-media{position:absolute;top:0;left:0;height:100%;aspect-ratio:4/3;z-index:0}
 .hero-pic,.hero-pic img{display:block;width:100%;height:100%}
 .hero-pic img{object-fit:contain}
-.hero-media::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,var(--field) 0%,color-mix(in srgb,var(--field) 45%,transparent) 10%,transparent 22%)}
-.hero-photo .hero-in{position:relative;z-index:1}
-.hero-photo .patch{position:absolute;z-index:1;width:22rem;max-width:none;top:50%;left:min(78%,calc(100% - 16px - 11rem));transform:translate(-50%,-50%);margin:0;filter:drop-shadow(0 6px 18px rgba(0,0,0,.35))}
+.hero-media::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(270deg,var(--field) 0%,color-mix(in srgb,var(--field) 45%,transparent) 10%,transparent 22%)}
+.hero-photo .hero-in{position:relative;z-index:1;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.hero-photo .hero-in>div{grid-column:2}
+.hero-photo .patch{position:absolute;z-index:1;width:min(22rem,28vw);max-width:none;top:50%;left:max(66%,calc(16px + 11rem));transform:translate(-50%,-50%);margin:0;filter:drop-shadow(0 6px 18px rgba(0,0,0,.35))}
 .btns{display:flex;flex-wrap:wrap;gap:16px}
 .btn{display:inline-block;padding:10px 20px;border-radius:4px;font-weight:700;text-decoration:none;border:2px solid var(--lettering);color:var(--lettering)}
 .btn:hover{background:color-mix(in srgb,var(--lettering) 14%,transparent)}
@@ -183,7 +184,8 @@ footer p{margin:0}
 @media (max-width:760px){
   .hero-in{grid-template-columns:1fr;gap:24px;padding:32px 16px}
   .hero .patch{max-width:16rem;order:-1}
-  .hero-photo .hero-in{min-height:0;padding-top:calc(75vw + 8px)}
+  .hero-photo .hero-in{min-height:0;padding-top:calc(75vw + 8px);grid-template-columns:minmax(0,1fr)}
+  .hero-photo .hero-in>div{grid-column:1}
   .hero-media{left:0;right:0;width:100%;height:auto}
   .hero-pic,.hero-pic img{height:auto}
   .hero-media::after{background:linear-gradient(180deg,transparent 0%,transparent 82%,var(--field) 100%)}

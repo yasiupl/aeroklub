@@ -69,7 +69,7 @@ def cover(p, name):
 PHOTO = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "zdjecia", "ilawa-z-szybowca.jpg")
 
 
-def cover_photo(p, name, off=450):
+def cover_photo(p, name, off=300):
     """Facebook cover with the photo of Iława from a glider on the whole background (no gradient), for the
     current Facebook Page layout. The cover is shallow there: about 2.7:1 on desktop and about 2.45:1 in the app,
     and the profile picture is under the cover, not on it. The canvas is 1640 x 640 (2.56:1), between both:
@@ -77,8 +77,8 @@ def cover_photo(p, name, off=450):
     in the centre, at least 80 px from the left and right edges and 40 px from the top and bottom.
     Left, as on the original cover: AVIAVA, a line in the rim colour and the slogan. The patch on the right,
     symmetric to the text block and in line with it. A soft shadow under the text keeps it readable on the photo.
-    off: how many pixels of the scaled photo (1640 x 1230) are cut at the top; 450 shows Jeziorak, Wielka Żuława
-    and the town, with little sky."""
+    off: how many pixels of the scaled photo (1640 x 1230) are cut at the top; 300 shows the sky with clouds, Jeziorak, Wielka Żuława
+    and the town."""
     import base64, io
     from PIL import Image, ImageFilter
     W, H = 1640, 640

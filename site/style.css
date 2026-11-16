@@ -74,18 +74,10 @@ footer p{margin:0}
 .hero .lead{font-size:20px;line-height:30px;margin:0 0 24px;max-width:34rem}
 .hero .patch{display:block;width:100%;max-width:22rem;margin:0 auto}
 .hero .patch img{display:block;width:100%;height:auto}
-/* Home hero: the whole photo of Iława from a glider (no vertical crop).
-   Text on the left half over a gradient that ends at the middle of the page.
-   Patch on the photo, east of Jeziorak (fields north-east of the town): it covers neither Jeziorak, Wielka Żuława nor Mały Jeziorak. */
-.hero-photo{padding:0}
-.hero-stage{position:relative}
-.hero-pic{display:block}
-.hero-pic img{display:block;width:100%;height:auto}
-.hero-stage::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,color-mix(in srgb,var(--field) 92%,transparent) 0%,color-mix(in srgb,var(--field) 78%,transparent) 30%,transparent 50%)}
-.hero-photo .hero-in{position:absolute;inset:0;z-index:2;display:block;padding-top:clamp(40px,6vw,96px);padding-bottom:0}
-.hero-photo .hero-in>div{max-width:min(30rem,42vw)}
-.hero-photo h1,.hero-photo .sub,.hero-photo .lead{text-shadow:0 1px 12px color-mix(in srgb,var(--band) 70%,transparent)}
-.hero-photo .patch{position:absolute;z-index:2;left:78.5%;top:53%;width:20%;max-width:none;margin:0;filter:drop-shadow(0 6px 18px rgba(0,0,0,.35))}
+/* Photo of Iława from a glider under the Misja section: whole photo, no crop, no overlay */
+.photo-band{max-width:1600px;margin:8px auto 32px;padding:0}
+.photo-band img{display:block;width:100%;height:auto}
+.photo-band figcaption{max-width:var(--wide);margin:8px auto 0;padding:0 16px;font-size:13px;line-height:18px;color:var(--muted)}
 .btns{display:flex;flex-wrap:wrap;gap:16px}
 .btn{display:inline-block;padding:10px 20px;border-radius:4px;font-weight:700;text-decoration:none;border:2px solid var(--lettering);color:var(--lettering)}
 .btn:hover{background:color-mix(in srgb,var(--lettering) 14%,transparent)}
@@ -182,12 +174,6 @@ footer p{margin:0}
 @media (max-width:760px){
   .hero-in{grid-template-columns:1fr;gap:24px;padding:32px 16px}
   .hero .patch{max-width:16rem;order:-1}
-  .hero-stage{display:flex;flex-direction:column;background:var(--field)}
-  .hero-stage::after{display:none}
-  .hero-photo .patch{position:static;order:0;width:auto;max-width:11rem;margin:32px auto 0}
-  .hero-photo .hero-in{position:static;order:1;padding:24px 16px}
-  .hero-photo .hero-in>div{max-width:none}
-  .hero-pic{order:2}
   .hero h1{font-size:44px;line-height:48px}
   .mark{grid-template-columns:1fr}
   .mark img{max-width:10rem}

@@ -3,6 +3,7 @@
   "framework": null,
   "installCommand": "npm install",
   "buildCommand": "node build.mjs",
+  "ignoreCommand": "sh vercel-ignore.sh",
   "outputDirectory": "dist",
   "trailingSlash": true,
   "redirects": [

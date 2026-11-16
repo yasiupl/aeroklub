@@ -1,6 +1,6 @@
 ---
 title: "Baza wiedzy: lotnictwo w Iławie i powiecie iławskim"
-updated: 2026-11-15
+updated: 2026-11-16
 ---
 
 # Lotnictwo w Iławie i powiecie iławskim
@@ -8,6 +8,7 @@ updated: 2026-11-15
 Baza wiedzy o lotnictwie w Iławie, powiecie iławskim i regionie Jezioraka.
 
 - [[biala-plama]] – w powiecie iławskim nie ma lądowiska dla samolotów ani szybowców.
+- [[szkolenie-szybowcowe]] – kto może się szkolić, ile trwa szkolenie, ile kosztuje i jak lata szybowiec.
 - [[otwarte-pytania]] – luki w wiedzy i informacje do sprawdzenia.
 - [[log]] – rejestr zmian.
 - [Mapa](/wiki/mapa/) – aerokluby, lądowiska i dojazdy z Iławy.
@@ -20,6 +21,7 @@ Baza wiedzy o lotnictwie w Iławie, powiecie iławskim i regionie Jezioraka.
 - [[lotnictwo-w-ilawie-po-1945|Lotnictwo w Iławie po 1945 roku]]
 - [[ladowania-szybowcow-2023|Lądowania szybowców w polach koło Iławy (2023)]]
 - [[ladowisko-prawo|Lądowisko w prawie lotniczym]]
+- [[szkolenie-szybowcowe|Szkolenie szybowcowe: pytania i odpowiedzi]]
 - [[tradycje-lotnicze-regionu|Polskie tradycje lotnicze w regionie]]
 
 ## Podmioty: aerokluby, lądowiska, wydarzenia
@@ -44,6 +46,8 @@ Baza wiedzy o lotnictwie w Iławie, powiecie iławskim i regionie Jezioraka.
 ## Źródła
 
 - [[kmdg-laskowski-modelarstwo-grudziadz|A. Laskowski: 85 lat modelarstwa lotniczego w Grudziądzu 1931–2016 (Biuletyn KMDG, 2016)]]
+- [[awm-cennik-statutowe-2026|Aeroklub Warmińsko-Mazurski: opłaty statutowe 2026]]
+- [[awm-cennik-szybowce-2026|Aeroklub Warmińsko-Mazurski: cennik działalności szybowcowej 2026]]
 - [[lisie-katy-historia|Aeroklub Nadwiślański: Lotnisko EPGI Lisie Kąty – historia, infrastruktura i jak tu trafić]]
 - [[aeroklub-elblaski-o-nas|Aeroklub Elbląski: O nas]]
 - [[aeroklub-polski-historia|Aeroklub Polski: Historia AP]]
@@ -53,6 +57,7 @@ Baza wiedzy o lotnictwie w Iławie, powiecie iławskim i regionie Jezioraka.
 - [[awm-szkolenie-szybowcowe-2026|Aeroklub Warmińsko-Mazurski: Szkolenie szybowcowe 2026 r.]]
 - [[aeroklub-waw-fiesta-2018|Aeroklub Warszawski: I Fiesta Balonowa o Puchar Wójta Gminy Iława]]
 - [[afterburner-majowka-2019|Afterburner: Lotnicza Majówka Iława 2019]]
+- [[bga-puchacz-data-sheet|BGA: karta danych szybowca SZD-50-3 Puchacz]]
 - [[dlapilota-80-lat-awm|dlapilota.pl: 80 lat Aeroklubu Warmińsko-Mazurskiego]]
 - [[dlapilota-fiesta-2019|dlapilota.pl: II Fiesta Balonowa Iława 2019]]
 - [[dlapilota-elblag|dlapilota.pl: Lotniska – Elbląg]]
@@ -61,6 +66,9 @@ Baza wiedzy o lotnictwie w Iławie, powiecie iławskim i regionie Jezioraka.
 - [[dlapilota-olsztyn-dajtki|dlapilota.pl: Lotniska – Olsztyn-Dajtki]]
 - [[dlapilota-prabuty|dlapilota.pl: Lotniska – Prabuty (Stary Kamień)]]
 - [[dlapilota-warszawa-babice|dlapilota.pl: Lotniska – Warszawa-Babice]]
+- [[easa-tcds-puchacz|EASA: karta danych certyfikatu typu A.312 (SZD-50-3 Puchacz)]]
+- [[eurlex-part-med|EUR-Lex: rozporządzenie (UE) nr 1178/2011, załącznik IV (część MED)]]
+- [[eurlex-part-sfcl|EUR-Lex: rozporządzenie wykonawcze (UE) 2018/1976, załącznik III (część SFCL)]]
 - [[infoilawa-dali-w-pole-2023|Info Iława: Dali w pole. O przygodnych lądowaniach w okolicach Iławy]]
 - [[infoilawa-fiesta-2018|Info Iława: pierwsze akcenty I Fiesty Balonowej (2018)]]
 - [[infoilawa-majowka-siemiany-2022|Info Iława: Lotnicza Majówka z Iławy leci do Siemian]]
@@ -83,4 +91,5 @@ Baza wiedzy o lotnictwie w Iławie, powiecie iławskim i regionie Jezioraka.
 - [[ulc-wykaz-ladowisk-2026|ULC: Wykaz lądowisk cywilnych (25.02.2026)]]
 - [[ulc-wykaz-ladowisk-2026-06|ULC: Wykaz lądowisk cywilnych (16.06.2026)]]
 - [[ulc-zakladanie-ladowisk|ULC: Zakładanie lądowisk – wymagania dotyczące dokumentów]]
+- [[wikipedia-szybowiec|Wikipedia: Szybowiec]]
 - [[zycie-olsztyna-gryzliny-2026|Życie Olsztyna: Niebo nad Gryźlinami znów zapłonie]]

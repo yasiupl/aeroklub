@@ -93,10 +93,15 @@ footer p{margin:0}
 .btn:hover{background:color-mix(in srgb,var(--lettering) 14%,transparent)}
 .btn.main{background:var(--town);border-color:var(--town);color:var(--band)}
 .btn.main:hover{background:color-mix(in srgb,var(--town) 86%,#fff)}
-.sec{max-width:var(--wide);margin:0 auto;padding:24px 16px}
+.sec{max-width:calc(var(--text) + 32px);margin:0 auto;padding:24px 16px}
 .sec>h2{font-size:32px;line-height:38px;border:0;margin:24px 0 8px}
-/* One content column: every block in a section (text, cards, lists, tables) has the width of the text column */
+/* One centred content column: every block in a section has the width of the text column */
 .sec>*{max-width:var(--text)}
+/* Step cards (first edition, next steps) may be wider than the column: up to --wide, centred on the column.
+   Desktop: all cards in one row. Tablet: two columns. Phone: one column. */
+.sec>.cards.steps{--w:min(var(--wide),calc(100vw - 32px));width:var(--w);max-width:none;margin-left:calc((100% - var(--w)) / 2);grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr)}
+@media (max-width:900px){.sec>.cards.steps{grid-auto-flow:row;grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.sec>.cards.steps{grid-template-columns:minmax(0,1fr)}}
 .sec .intro{font-size:18px;line-height:28px}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:16px;margin:24px 0;padding:0;list-style:none}
 .card{margin:0;padding:16px;border:1px solid var(--line);border-top:4px solid var(--field);border-radius:4px;background:var(--soft)}
@@ -108,7 +113,7 @@ footer p{margin:0}
 .steps .card h3::before{content:counter(s) ". "}
 .note{border-left:4px solid var(--town);padding:8px 16px;margin:24px 0;background:var(--soft);max-width:var(--text)}
 .note p{margin:0}
-.people{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,18rem));gap:24px;margin:24px 0;padding:0;list-style:none}
+.people{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,18rem));justify-content:center;gap:24px;margin:24px 0;padding:0;list-style:none}
 .person{margin:0}
 .person img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;border-radius:4px;border:1px solid var(--line);border-bottom:4px solid var(--rim);background:var(--soft)}
 .person h3{font:700 20px/26px var(--display);margin:16px 0 0}

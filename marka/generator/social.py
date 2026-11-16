@@ -69,24 +69,28 @@ def cover(p, name):
 PHOTO = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "zdjecia", "ilawa-z-szybowca.jpg")
 
 
-def cover_photo(p, name, off=300):
-    """Facebook cover with the photo of Iława from a glider on the whole background (no gradient).
-    Left, as on the original cover: AVIAVA, a line in the rim colour and the slogan. The patch on the right, symmetric to the text block and in line with it (vertically centred on the text block).
-    A soft shadow under the text keeps it readable on the photo. Everything important is in the band that
-    Facebook shows on desktop (y 150..774) and on phones (x 180..1460); the profile picture covers the bottom-left corner.
-    off: how many pixels of the scaled photo are cut at the top (the photo is 1640 x 1230 after scaling)."""
+def cover_photo(p, name, off=450):
+    """Facebook cover with the photo of Iława from a glider on the whole background (no gradient), for the
+    current Facebook Page layout. The cover is shallow there: about 2.7:1 on desktop and about 2.45:1 in the app,
+    and the profile picture is under the cover, not on it. The canvas is 1640 x 640 (2.56:1), between both:
+    desktop cuts about 16 px at the top and bottom, the app about 35 px on each side. Everything important is
+    in the centre, at least 80 px from the left and right edges and 40 px from the top and bottom.
+    Left, as on the original cover: AVIAVA, a line in the rim colour and the slogan. The patch on the right,
+    symmetric to the text block and in line with it. A soft shadow under the text keeps it readable on the photo.
+    off: how many pixels of the scaled photo (1640 x 1230) are cut at the top; 450 shows Jeziorak, Wielka Żuława
+    and the town, with little sky."""
     import base64, io
     from PIL import Image, ImageFilter
-    W, H = 1640, 924
+    W, H = 1640, 640
     s = W / 1600
     ph = 1200 * s
     img = base64.b64encode(open(PHOTO, "rb").read()).decode()
     photo = '<image x="0" y="%s" width="%d" height="%s" href="data:image/jpeg;base64,%s"/>' % (L.r1(-off), W, L.r1(ph), img)
-    t = [text("AVIAVA", 470, 400, 140, "#FFFFFF", track=18),
-         '<rect x="210" y="432" width="520" height="5" fill="%s"/>' % p["rim"],
-         text("Pojezierze znasz z żaglówki.", 470, 500, 44, "#FFFFFF", face=L.FS),
-         text("Zobacz je z góry.", 470, 556, 44, "#FFFFFF", face=L.FS)]
-    badge = patch(p, W - 470, 428, 380)   # mirror of the text block (centred at x 470): symmetric on the right, in line with the text
+    t = [text("AVIAVA", 470, 285, 140, "#FFFFFF", track=18),
+         '<rect x="210" y="317" width="520" height="5" fill="%s"/>' % p["rim"],
+         text("Pojezierze znasz z żaglówki.", 470, 385, 44, "#FFFFFF", face=L.FS),
+         text("Zobacz je z góry.", 470, 441, 44, "#FFFFFF", face=L.FS)]
+    badge = patch(p, W - 470, 313, 380)   # mirror of the text block (centred at x 470): symmetric on the right, in line with the text
     # SVG: the shadow is an SVG filter
     shadow = ('<defs><filter id="sh" x="-10%" y="-30%" width="120%" height="160%"><feGaussianBlur in="SourceAlpha" stdDeviation="9"/>'
               '<feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer><feMerge><feMergeNode/>'

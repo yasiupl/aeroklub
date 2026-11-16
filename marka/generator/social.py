@@ -69,28 +69,41 @@ def cover(p, name):
 PHOTO = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "zdjecia", "ilawa-z-szybowca.jpg")
 
 
-def cover_photo(p, name):
-    """Same layout as the home page hero: the whole photo of Iława from a glider on the left (full height),
-    a short gradient joins its right edge to the field colour, the patch on the photo east of Jeziorak
-    (66 % of the photo width), the name on the right. Everything important is in the band that Facebook
-    shows on desktop (y 150..774) and on phones (x 180..1460); the profile picture covers the bottom-left corner."""
-    import base64
+def cover_photo(p, name, off=150):
+    """Facebook cover with the photo of Iława from a glider on the whole background (no gradient).
+    Left, as on the original cover: AVIAVA, a line in the rim colour and the slogan. A small patch on the right.
+    A soft shadow under the text keeps it readable on the photo. Everything important is in the band that
+    Facebook shows on desktop (y 150..774) and on phones (x 180..1460); the profile picture covers the bottom-left corner.
+    off: how many pixels of the scaled photo are cut at the top (the photo is 1640 x 1230 after scaling)."""
+    import base64, io
+    from PIL import Image, ImageFilter
     W, H = 1640, 924
-    pw = H * 4 / 3                                   # whole photo, scaled to the cover height
+    s = W / 1600
+    ph = 1200 * s
     img = base64.b64encode(open(PHOTO, "rb").read()).decode()
-    o = ['<defs><linearGradient id="fade" x1="0" x2="1" y1="0" y2="0">'
-         '<stop offset="0.78" stop-color="%s" stop-opacity="0"/><stop offset="0.89" stop-color="%s" stop-opacity="0.45"/>'
-         '<stop offset="1" stop-color="%s"/></linearGradient></defs>' % (p["field"], p["field"], p["field"])]
-    o.append('<rect width="%d" height="%d" fill="%s"/>' % (W, H, p["field"]))
-    o.append('<image x="0" y="0" width="%s" height="%d" preserveAspectRatio="xMidYMid meet" href="data:image/jpeg;base64,%s"/>' % (L.r1(pw), H, img))
-    o.append('<rect x="0" y="0" width="%s" height="%d" fill="url(#fade)"/>' % (L.r1(pw), H))
-    o.append(patch(p, 0.66 * pw, 462, 470))
-    x = 1090
-    o.append(text("AVIAVA", x, 450, 84, p["text"], track=8, anchor="start"))
-    o.append(text("GRUPA LOTNICZA", x + 2, 510, 30, p["text"], track=6, face=L.FS, anchor="start"))
-    o.append('<rect x="%d" y="535" width="300" height="4" fill="%s"/>' % (x + 2, p["rim"]))
-    o.append(text("IŁAWA", x + 2, 585, 30, p["text"], track=6, face=L.FS, anchor="start"))
-    save("facebook-tlo-zdjecie-%s" % name, "".join(o), W, H)
+    photo = '<image x="0" y="%s" width="%d" height="%s" href="data:image/jpeg;base64,%s"/>' % (L.r1(-off), W, L.r1(ph), img)
+    t = [text("AVIAVA", 470, 400, 140, "#FFFFFF", track=18),
+         '<rect x="210" y="432" width="520" height="5" fill="%s"/>' % p["rim"],
+         text("Pojezierze znasz z żaglówki.", 470, 500, 44, "#FFFFFF", face=L.FS),
+         text("Zobacz je z góry.", 470, 556, 44, "#FFFFFF", face=L.FS)]
+    badge = patch(p, 1330, 330, 240)
+    # SVG: the shadow is an SVG filter
+    shadow = ('<defs><filter id="sh" x="-10%" y="-30%" width="120%" height="160%"><feGaussianBlur in="SourceAlpha" stdDeviation="9"/>'
+              '<feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer><feMerge><feMergeNode/>'
+              '<feMergeNode in="SourceGraphic"/></feMerge></filter></defs>')
+    svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %d %d" width="%d" height="%d">%s%s<g filter="url(#sh)">%s%s</g></svg>' % (
+        W, H, W, H, shadow, photo, "".join(t), badge)
+    open("%s/facebook-tlo-zdjecie-%s.svg" % (OUT, name), "w").write(svg)
+    # PNG: the same shadow made with Pillow (cairosvg does not draw SVG filters)
+    def layer(body):
+        doc = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %d %d" width="%d" height="%d">%s</svg>' % (W, H, W, H, body)
+        return Image.open(io.BytesIO(cairosvg.svg2png(bytestring=doc.encode(), output_width=W, output_height=H))).convert("RGBA")
+    base = layer(photo)
+    top = layer("".join(t) + badge)
+    sh = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    sh.putalpha(top.getchannel("A").filter(ImageFilter.GaussianBlur(9)).point(lambda a: int(a * 0.55)))
+    out = Image.alpha_composite(Image.alpha_composite(base, sh), top).convert("RGB")
+    out.save("%s/facebook-tlo-zdjecie-%s.png" % (OUT, name), optimize=True)
 
 
 # ---------------------------------------------------------------- story / tło 1080 x 1920

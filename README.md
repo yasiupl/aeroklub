@@ -44,4 +44,4 @@ Generator zatrzymuje się z błędem, gdy link `[[slug]]` prowadzi do strony, kt
 
 Vercel: polecenie budowania `node build.mjs`, katalog wyjściowy `dist` (plik `vercel.json`). Push do `main` uruchamia wdrożenie.
 
-Strony mają znacznik `noindex`. Usuń go w `build.mjs`, gdy wiki ma trafić do wyszukiwarek.
+Strony są otwarte dla wyszukiwarek i modeli AI. `build.mjs` tworzy `sitemap.xml`, `robots.txt` i `llms.txt`, a w każdej stronie opis, adres kanoniczny, Open Graph i dane strukturalne schema.org.

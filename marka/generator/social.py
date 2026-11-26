@@ -65,6 +65,54 @@ def cover(p, name):
     save("facebook-tlo-%s" % name, "".join(o), W, H)
 
 
+# ---------------------------------------------------------------- Facebook cover with the photo, 1640 x 924
+PHOTO = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "zdjecia", "ilawa-z-szybowca.jpg")
+
+
+def cover_photo(p, name):
+    """Facebook cover with the whole photo of Iława from a glider (1640 x 1230, no crop, no gradient).
+    Facebook shows the whole photo after a click; as the cover it shows only a shallow band: about 2.7:1 on desktop
+    and about 2.45:1 in the app (the profile picture is under the cover, not on it). All elements are in the middle
+    band 1640 x 640 (y 295..935), at least 80 px from the left and right edges and 40 px from the top and bottom
+    of the band. In the Facebook editor the cover must show this middle band.
+    Left, as on the original cover: AVIAVA, a line in the rim colour and the slogan. The text block in the middle of the left half,
+    the patch in the middle of the right half, in line with the text block. A soft shadow under the text keeps it readable on the photo."""
+    import base64, io
+    from PIL import Image, ImageFilter
+    W = 1640
+    s = W / 1600
+    ph = 1200 * s
+    H = round(ph)                        # 1230: the whole photo
+    band = (H - 640) / 2                 # top of the middle band that Facebook shows as the cover
+    off = 0
+    img = base64.b64encode(open(PHOTO, "rb").read()).decode()
+    photo = '<image x="0" y="%s" width="%d" height="%s" href="data:image/jpeg;base64,%s"/>' % (L.r1(-off), W, L.r1(ph), img)
+    t = [text("AVIAVA", W / 4, band + 285, 140, "#FFFFFF", track=18),
+         '<rect x="%s" y="%s" width="520" height="5" fill="%s"/>' % (L.r1(W / 4 - 260), L.r1(band + 317), p["rim"]),
+         text("Pojezierze znasz z żaglówki.", W / 4, band + 385, 44, "#FFFFFF", face=L.FS),
+         text("Zobacz je z góry.", W / 4, band + 441, 44, "#FFFFFF", face=L.FS)]
+    # The text block is centred in the left half (x = W/4), the patch in the right half (x = 3W/4).
+    # Vertically the patch is centred on the ink of the text block (y 191..453 in the band).
+    badge = patch(p, 3 * W / 4, band + 322, 380)
+    # SVG: the shadow is an SVG filter
+    shadow = ('<defs><filter id="sh" x="-10%" y="-30%" width="120%" height="160%"><feGaussianBlur in="SourceAlpha" stdDeviation="9"/>'
+              '<feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer><feMerge><feMergeNode/>'
+              '<feMergeNode in="SourceGraphic"/></feMerge></filter></defs>')
+    svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %d %d" width="%d" height="%d">%s%s<g filter="url(#sh)">%s%s</g></svg>' % (
+        W, H, W, H, shadow, photo, "".join(t), badge)
+    open("%s/facebook-tlo-zdjecie-%s.svg" % (OUT, name), "w").write(svg)
+    # PNG: the same shadow made with Pillow (cairosvg does not draw SVG filters)
+    def layer(body):
+        doc = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %d %d" width="%d" height="%d">%s</svg>' % (W, H, W, H, body)
+        return Image.open(io.BytesIO(cairosvg.svg2png(bytestring=doc.encode(), output_width=W, output_height=H))).convert("RGBA")
+    base = layer(photo)
+    top = layer("".join(t) + badge)
+    sh = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    sh.putalpha(top.getchannel("A").filter(ImageFilter.GaussianBlur(9)).point(lambda a: int(a * 0.55)))
+    out = Image.alpha_composite(Image.alpha_composite(base, sh), top).convert("RGB")
+    out.save("%s/facebook-tlo-zdjecie-%s.png" % (OUT, name), optimize=True)
+
+
 # ---------------------------------------------------------------- story / tło 1080 x 1920
 def story(p, name):
     W, H = 1080, 1920
@@ -95,6 +143,7 @@ if __name__ == "__main__":
     profile()
     for name, p in [("jasna", P["szybowcowa"]), ("ciemna", P["nocna"])]:
         cover(p, name)
+        cover_photo(p, name)
         story(p, name)
         frame(p, name, 1080, 1350)
         frame(p, name, 1080, 1080)

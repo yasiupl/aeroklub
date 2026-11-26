@@ -89,6 +89,7 @@ Find and record in `otwarte-pytania.md`:
 ## Web site
 
 - `node build.mjs` makes the site in `dist/`. The Vercel project runs this command.
+- `vercel-ignore.sh` (Vercel `ignoreCommand`) skips the build when no web site file changed since the last deployment: brand book, generator, social media graphics, photos in `marka/`, `raw/` and the documentation do not start a build. When `build.mjs` reads a new file or folder, add it to the list in `vercel-ignore.sh`.
 - The home page is at `/`. The wiki is at `/wiki/`. The map is at `/wiki/mapa/`. `vercel.json` redirects the old wiki addresses (without `/wiki/`).
 - Colours: `build.mjs` writes the brand tokens from `marka/tokens.json` as CSS variables. Theme `light` is the default for all visitors. Theme `dark` is on only when the visitor turns it on with the switch in the header (`data-theme="dark"`, saved in `localStorage`). Do not use `prefers-color-scheme`: the dark version of the brand is reserved for the staff and special occasions. Do not write brand colour values in `site/style.css`.
 - Logos in two versions: use the `{{logo:light-file:dark-file:attributes}}` placeholder in `site/*.html`. CSS shows the version that matches the theme.
